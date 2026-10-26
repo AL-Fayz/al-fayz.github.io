@@ -11,19 +11,19 @@
     uz: { tagline: "Milliy taomlar · Halal", cart: "Savatcha", yourOrder: "Buyurtmangiz", total: "Jami", call: "Qo'ng'iroq qilish", sms: "SMS orqali buyurtma",
           hint: "Buyurtma berish uchun qo'ng'iroq qiling yoki SMS yuboring.", clear: "Savatchani tozalash", empty: "Savatcha bo'sh", soon: "Tez orada",
           soonText: "Bu bo'lim tez orada to'ldiriladi.", min: "daqiqada tayyor", hours: "soatda tayyor", added: "savatchaga qo'shildi", naver: "Naver xarita", kakao: "Kakao xarita",
-          footnote: "Narxlar o'zgarishi mumkin. Barcha taomlar halol.", smsHead: "Assalomu alaykum! AL-FAYZ buyurtma:", smsTotal: "JAMI", more: "batafsil", pcs: "ta", photos: "Rasmlar" },
+          footnote: "Narxlar o'zgarishi mumkin. Barcha taomlar halol.", smsHead: "Assalomu alaykum! AL-FAYZ buyurtma:", smsTotal: "JAMI", more: "batafsil", pcs: "ta", pick: "Tavsiya", photos: "Rasmlar" },
     en: { tagline: "Uzbek cuisine · Halal", cart: "Cart", yourOrder: "Your order", total: "Total", call: "Call to order", sms: "Order by SMS",
           hint: "Call us or send an SMS to place your order.", clear: "Clear cart", empty: "Your cart is empty", soon: "Coming soon",
           soonText: "This section will be filled soon.", min: "min to prepare", hours: "hours to prepare", added: "added to cart", naver: "Naver Map", kakao: "Kakao Map",
-          footnote: "Prices may change. All dishes are halal.", smsHead: "Hello! AL-FAYZ order:", smsTotal: "TOTAL", more: "more", pcs: "pcs", photos: "Photos" },
+          footnote: "Prices may change. All dishes are halal.", smsHead: "Hello! AL-FAYZ order:", smsTotal: "TOTAL", more: "more", pcs: "pcs", pick: "Chef's pick", photos: "Photos" },
     ko: { tagline: "우즈벡 전통 요리 · 할랄", cart: "장바구니", yourOrder: "주문 내역", total: "합계", call: "전화 주문", sms: "문자로 주문",
           hint: "전화 또는 문자로 주문해 주세요.", clear: "장바구니 비우기", empty: "장바구니가 비어 있습니다", soon: "곧 준비됩니다",
           soonText: "이 메뉴는 곧 추가됩니다.", min: "분 소요", hours: "시간 소요", added: "장바구니에 담았습니다", naver: "네이버 지도", kakao: "카카오맵",
-          footnote: "가격은 변동될 수 있습니다. 모든 요리는 할랄입니다.", smsHead: "안녕하세요! AL-FAYZ 주문:", smsTotal: "합계", more: "더보기", pcs: "개", photos: "사진" },
+          footnote: "가격은 변동될 수 있습니다. 모든 요리는 할랄입니다.", smsHead: "안녕하세요! AL-FAYZ 주문:", smsTotal: "합계", more: "더보기", pcs: "개", pick: "추천", photos: "사진" },
     ru: { tagline: "Узбекская кухня · Халяль", cart: "Корзина", yourOrder: "Ваш заказ", total: "Итого", call: "Позвонить", sms: "Заказать по SMS",
           hint: "Позвоните или отправьте SMS, чтобы сделать заказ.", clear: "Очистить корзину", empty: "Корзина пуста", soon: "Скоро",
           soonText: "Этот раздел скоро будет заполнен.", min: "мин на приготовление", hours: "ч на приготовление", added: "добавлено в корзину", naver: "Naver Карта", kakao: "Kakao Карта",
-          footnote: "Цены могут меняться. Все блюда халяль.", smsHead: "Здравствуйте! Заказ AL-FAYZ:", smsTotal: "ИТОГО", more: "ещё", pcs: "шт", photos: "Фото" }
+          footnote: "Цены могут меняться. Все блюда халяль.", smsHead: "Здравствуйте! Заказ AL-FAYZ:", smsTotal: "ИТОГО", more: "ещё", pcs: "шт", pick: "Рекомендуем", photos: "Фото" }
   };
 
   const $ = (s, el = document) => el.querySelector(s);
@@ -76,7 +76,7 @@
     const alt = lang === "ko" ? item.name.en : item.name.ko;
     return `<article class="card${qty ? " in-cart" : ""}" data-id="${item.id}">
       <svg class="corner tl"><use href="#corner"/></svg>
-      <div class="thumb">${img}</div>
+      <div class="thumb">${img}${item.featured ? `<span class="pick">⭐ ${t("pick")}</span>` : ""}</div>
       <div class="body">
         <h3 class="name">${esc(tx(item.name))}</h3>
         <div class="alt">${esc(alt)}</div>

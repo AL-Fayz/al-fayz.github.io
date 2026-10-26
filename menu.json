@@ -151,7 +151,8 @@
         "en": "Traditional Uzbek rice pilaf slow-cooked in a kazan with lamb and yellow carrots.",
         "ko": "양고기와 당근을 넣어 카잔 솥에서 지은 전통 우즈벡 볶음밥.",
         "ru": "Традиционный узбекский плов из риса, баранины и жёлтой моркови, приготовленный в казане."
-      }
+      },
+      "featured": true
     },
     {
       "id": "khazan-kebab-plov",
@@ -170,7 +171,8 @@
         "en": "Kazan-roasted lamb and plov on one plate, with fries and carrot salad.",
         "ko": "카잔 양고기 케밥과 필라프를 한 접시에, 감자튀김·당근 샐러드 곁들임.",
         "ru": "Казан-кебаб из баранины и плов на одной тарелке, с фри и морковным салатом."
-      }
+      },
+      "featured": true
     },
     {
       "id": "khazan-kebab-small",
@@ -189,7 +191,8 @@
         "en": "Tender lamb pan-roasted in a kazan, served with fries and fresh salad.",
         "ko": "카잔에서 구운 부드러운 양고기, 감자튀김과 샐러드 곁들임.",
         "ru": "Нежная баранина, обжаренная в казане, с картофелем фри и салатом."
-      }
+      },
+      "featured": true
     },
     {
       "id": "khazan-kebab-large",
@@ -1355,7 +1358,8 @@
         "ko": "큰 나무 판에 모든 고기: 다진 고기 케밥, 양고기·소고기 꼬치, 닭다리, 라바시, 양파, 레몬, 소스.",
         "ru": "Все виды мяса на большой доске: люля-кебаб, шашлык из баранины и говядины, куриные ножки, лаваш, лук, лимон и соусы."
       },
-      "ready": 30
+      "ready": 30,
+      "featured": true
     },
     {
       "id": "kazan-plov-lazer",
