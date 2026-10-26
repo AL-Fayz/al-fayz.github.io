@@ -1195,8 +1195,7 @@
       "cat": "drinks",
       "group": "soda",
       "price": 3500,
-      "image": "",
-      "icon": "🥤",
+      "image": "images/anor-fresh.webp",
       "name": {
         "uz": "Anor fresh",
         "en": "Anor fresh (pomegranate)",
@@ -1215,8 +1214,7 @@
       "cat": "drinks",
       "group": "soda",
       "price": 3500,
-      "image": "",
-      "icon": "🥤",
+      "image": "images/flavis.webp",
       "name": {
         "uz": "Flavis",
         "en": "Flavis",
