@@ -331,16 +331,16 @@
       "price": 13000,
       "image": "images/minced-baked-meat.webp",
       "name": {
-        "uz": "Pishirilgan qiyma",
-        "en": "Minced baked meat",
-        "ko": "다진 구운 고기 (소고기)",
-        "ru": "Запечённый фарш"
+        "uz": "Kotlet (1 porsiya)",
+        "en": "Kotlet (1 portion)",
+        "ko": "커틀릿 (1인분)",
+        "ru": "Котлеты (1 порция)"
       },
       "desc": {
-        "uz": "Pishloq va mayonez ostida pishirilgan mol go'shti qiymasi, fri bilan.",
-        "en": "Minced beef baked under cheese and mayo, served with fries.",
-        "ko": "치즈와 마요네즈를 올려 구운 다진 소고기, 감자튀김 곁들임.",
-        "ru": "Говяжий фарш, запечённый под сыром и майонезом, с картофелем фри."
+        "uz": "Mol go'shti qiymasidan kotletlar, pishloq va mayonez ostida pishirilgan, kartoshka fri bilan.",
+        "en": "Minced-beef patties baked under cheese and mayo, served with fries.",
+        "ko": "치즈와 마요네즈를 올려 구운 소고기 커틀릿, 감자튀김 곁들임.",
+        "ru": "Котлеты из говяжьего фарша, запечённые под сыром и майонезом, с картофелем фри."
       }
     },
     {
