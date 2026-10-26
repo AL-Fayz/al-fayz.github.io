@@ -271,7 +271,7 @@
       "id": "mol-goshti-combo",
       "cat": "main",
       "group": "national",
-      "price": 14000,
+      "price": 15000,
       "image": "images/mol-goshti-combo.webp",
       "name": {
         "uz": "Mol go'shti kombo",
@@ -423,7 +423,7 @@
       "id": "fried-noodles",
       "cat": "main",
       "group": "national",
-      "price": 12000,
+      "price": 13000,
       "image": "images/fried-noodles.webp",
       "name": {
         "uz": "Qovurma lag'mon",
@@ -556,7 +556,7 @@
       "id": "chicken-kebab",
       "cat": "main",
       "group": "kebab",
-      "price": 7000,
+      "price": 7500,
       "image": "images/chicken-kebab.webp",
       "name": {
         "uz": "Tovuq kabob",
@@ -569,25 +569,6 @@
         "en": "Marinated chicken skewer with spicy sauce and onion.",
         "ko": "양념 닭고기 꼬치, 매운 소스와 양파 곁들임.",
         "ru": "Шашлык из маринованной курицы с острым соусом и луком."
-      }
-    },
-    {
-      "id": "kebab-set",
-      "cat": "main",
-      "group": "kebab",
-      "price": 15000,
-      "image": "images/kebab-set.webp",
-      "name": {
-        "uz": "Shashlik set",
-        "en": "Shashlik set",
-        "ko": "샤슬릭 세트",
-        "ru": "Шашлычный сет"
-      },
-      "desc": {
-        "uz": "Mol go'shti qiyma kabob va qo'y go'shti bo'lak (kuskovoy) shashlik, piyoz, pomidor, bodring, limon va sous bilan.",
-        "en": "Beef lyulya kebab and lamb chunk shashlik, with onion, tomato, cucumber, lemon and sauce.",
-        "ko": "소고기 다진 고기 꼬치와 양고기 덩어리 꼬치, 양파·토마토·오이·레몬·소스 곁들임.",
-        "ru": "Люля-кебаб из говядины и шашлык из баранины кусочками, с луком, помидорами, огурцами, лимоном и соусом."
       }
     },
     {
@@ -846,7 +827,7 @@
     {
       "id": "shorva",
       "cat": "soups",
-      "price": 11000,
+      "price": 12000,
       "image": "images/shorva.webp",
       "name": {
         "uz": "Sho'rva (qo'y go'shti)",
