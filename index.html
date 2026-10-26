@@ -5,14 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>AL-FAYZ — Milliy taomlar</title>
   <meta name="description" content="AL-FAYZ halal o'zbek restorani — elektron menyu. 할랄 우즈벡 레스토랑 메뉴. Siheung, Jeongwang-dong.">
-  <meta name="theme-color" content="#FBF6EC">
+  <meta name="theme-color" content="#1C1510">
   <meta property="og:title" content="AL-FAYZ — Halal Uzbek restaurant menu">
   <meta property="og:description" content="Osh, lag'mon, manti, kabob... 010-8126-0990">
   <meta property="og:image" content="images/plov.webp">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%23C8962E'/%3E%3Ccircle cx='32' cy='32' r='18' fill='none' stroke='%23FBF6EC' stroke-width='4'/%3E%3C/svg%3E">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%23E0B25A'/%3E%3Ccircle cx='32' cy='32' r='18' fill='none' stroke='%231C1510' stroke-width='4'/%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700&family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -20,7 +20,7 @@
   <svg width="0" height="0" style="position:absolute" aria-hidden="true">
     <defs>
       <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
-        <stop offset="0" stop-color="#C08A2B"/><stop offset=".5" stop-color="#8E5E16"/><stop offset="1" stop-color="#5E3B0B"/>
+        <stop offset="0" stop-color="#FBE3A0"/><stop offset=".45" stop-color="#E0B25A"/><stop offset="1" stop-color="#A9772A"/>
       </linearGradient>
     </defs>
     <symbol id="logo" viewBox="0 0 120 64">
@@ -29,10 +29,10 @@
         <circle cx="60" cy="32" r="27"/>
         <path d="M104 6c6 4 9 13 9 24 0 3-2 5-5 5h-1v23a3 3 0 0 1-6 0V8c0-1.5 1.5-2.5 3-2z"/>
       </g>
-      <circle cx="60" cy="32" r="21" fill="#FBF6EC"/>
+      <circle cx="60" cy="32" r="21" fill="#1C1510"/>
       <circle cx="60" cy="32" r="17" fill="url(#gold)"/>
-      <text x="60" y="32" text-anchor="middle" font-size="12" font-weight="700" fill="#FBF6EC" font-family="serif">حلال</text>
-      <text x="60" y="43" text-anchor="middle" font-size="7" font-weight="800" fill="#FBF6EC" font-family="Manrope, sans-serif">Halal</text>
+      <text x="60" y="32" text-anchor="middle" font-size="12" font-weight="700" fill="#1C1510" font-family="serif">حلال</text>
+      <text x="60" y="43" text-anchor="middle" font-size="7" font-weight="800" fill="#1C1510" font-family="Manrope, sans-serif">Halal</text>
     </symbol>
     <symbol id="star" viewBox="0 0 40 40">
       <path d="M20 1l4.6 8.9 9.5-3.4-3.4 9.5L39.6 20l-8.9 4.6 3.4 9.5-9.5-3.4L20 39.6l-4.6-8.9-9.5 3.4 3.4-9.5L.4 20l8.9-4.6-3.4-9.5 9.5 3.4z"/>
@@ -67,9 +67,11 @@
       <span class="halal-pill">✓ HALAL</span>
       <button id="lang-btn" class="lang-btn" aria-label="Language"><span>🌐</span><b id="lang-code">UZ</b></button>
     </div>
+    <div class="dust" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
     <svg class="hero-logo"><use href="#logo"/></svg>
     <h1 class="brand">AL-FAYZ</h1>
     <p class="brand-sub" data-i18n="tagline">Milliy taomlar</p>
+    <div class="hero-dish" aria-hidden="true"><div class="halo"></div><img src="images/plov.webp" alt=""></div>
     <a class="hero-call" href="tel:01081260990">📞 010-8126-0990</a>
   </header>
 
