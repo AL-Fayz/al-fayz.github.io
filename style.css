@@ -36,9 +36,11 @@ button { font: inherit; color: inherit; cursor: pointer; border: 0; background: 
 a { color: inherit; text-decoration: none; }
 img { display: block; max-width: 100%; }
 
-.brand { font-family: var(--display); font-weight: 800; letter-spacing: .06em; margin: 0;
-  background: linear-gradient(135deg, var(--gold-2), var(--gold) 45%, var(--gold-deep));
-  -webkit-background-clip: text; background-clip: text; color: transparent; }
+/* rounded brand lettering in deep lapis so it stands out on the cream background */
+.brand { font-family: "Fredoka", var(--font); font-weight: 700; letter-spacing: .04em; margin: 0; color: var(--lapis);
+  background: linear-gradient(160deg, #1B3F7E 10%, #1F4E8C 45%, #137C86 100%);
+  -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 2px 0 rgba(200, 150, 46, .55)) drop-shadow(0 8px 14px rgba(31, 78, 140, .18)); }
 .brand-sub { margin: 4px 0 0; color: var(--ink-2); font-weight: 600; letter-spacing: .14em; text-transform: uppercase; font-size: 12px; }
 .ornament-line { height: 14px; background: var(--band) repeat-x center; opacity: .9; margin: 16px auto; width: min(320px, 80%); }
 
@@ -53,7 +55,7 @@ img { display: block; max-width: 100%; }
 .lang-btn { display: flex; gap: 6px; align-items: center; padding: 7px 12px; border-radius: 99px; background: var(--card); box-shadow: var(--shadow); font-size: 13px; }
 .lang-btn b { color: var(--lapis); }
 .hero-logo { position: relative; width: 150px; height: 80px; margin: 8px auto 2px; display: block; filter: drop-shadow(0 6px 12px rgba(156, 111, 28, .25)); animation: rise .8s cubic-bezier(.2, .8, .2, 1) both; }
-.hero .brand { position: relative; font-size: 44px; line-height: 1.05; animation: rise .8s .08s cubic-bezier(.2, .8, .2, 1) both; }
+.hero .brand { position: relative; font-size: 50px; line-height: 1.05; animation: rise .8s .08s cubic-bezier(.2, .8, .2, 1) both; }
 .hero .brand-sub { position: relative; animation: rise .8s .16s cubic-bezier(.2, .8, .2, 1) both; }
 .hero-call { position: relative; display: inline-block; margin-top: 14px; padding: 9px 16px; border-radius: 99px; font-weight: 700; font-size: 14px;
   color: var(--lapis); background: #fff; border: 1px solid var(--line); animation: rise .8s .24s cubic-bezier(.2, .8, .2, 1) both; }
@@ -191,7 +193,7 @@ main { max-width: 1100px; margin: 0 auto; padding: 0 16px; }
 @keyframes fade { from { opacity: 0; } }
 .lang-card { position: relative; width: 100%; max-width: 380px; text-align: center; animation: rise .6s cubic-bezier(.2, .8, .2, 1); }
 .lang-logo { width: 170px; height: 92px; filter: drop-shadow(0 8px 16px rgba(156, 111, 28, .3)); }
-.lang-card .brand { font-size: 48px; }
+.lang-card .brand { font-size: 54px; }
 .lang-q { color: var(--ink-2); font-size: 14px; line-height: 1.6; margin: 0 0 16px; }
 .lang-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
 .lang-grid button { display: flex; flex-direction: column; align-items: center; gap: 6px; padding: 18px 10px; border-radius: 18px; font-weight: 800; font-size: 16px;
