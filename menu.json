@@ -578,16 +578,16 @@
       "price": 15000,
       "image": "images/kebab-set.webp",
       "name": {
-        "uz": "Kabob set",
-        "en": "Kebab set",
-        "ko": "꼬치 세트",
+        "uz": "Shashlik set",
+        "en": "Shashlik set",
+        "ko": "샤슬릭 세트",
         "ru": "Шашлычный сет"
       },
       "desc": {
-        "uz": "Mol go'shti va tovuq kabobidan to'plam, sous va piyoz bilan.",
-        "en": "Beef and chicken skewers together, with sauce and onion.",
-        "ko": "소고기·닭고기 꼬치 세트, 소스와 양파 곁들임.",
-        "ru": "Сет из шашлыка из говядины и курицы, с соусом и луком."
+        "uz": "Mol go'shti qiyma kabob va qo'y go'shti bo'lak (kuskovoy) shashlik, piyoz, pomidor, bodring, limon va sous bilan.",
+        "en": "Beef lyulya kebab and lamb chunk shashlik, with onion, tomato, cucumber, lemon and sauce.",
+        "ko": "소고기 다진 고기 꼬치와 양고기 덩어리 꼬치, 양파·토마토·오이·레몬·소스 곁들임.",
+        "ru": "Люля-кебаб из говядины и шашлык из баранины кусочками, с луком, помидорами, огурцами, лимоном и соусом."
       }
     },
     {
@@ -690,7 +690,7 @@
       "cat": "main",
       "group": "fastfood",
       "price": 7000,
-      "image": "",
+      "image": "images/hot-dog.webp",
       "name": {
         "uz": "Hot-dog",
         "en": "Hot dog",
@@ -709,7 +709,7 @@
       "cat": "main",
       "group": "fastfood",
       "price": 8000,
-      "image": "",
+      "image": "images/hot-dog-big.webp",
       "name": {
         "uz": "Hot-dog katta (2 sosiska)",
         "en": "Hot dog big (2 sausages)",
@@ -1357,53 +1357,56 @@
       "price": 69000,
       "image": "images/alfayz-set.webp",
       "name": {
-        "uz": "Al-Fayz set (5–6 kishilik)",
-        "en": "Al-Fayz set (for 5–6 people)",
-        "ko": "알파이즈 세트 (5–6인분)",
-        "ru": "Сет Al-Fayz (на 5–6 человек)"
+        "uz": "Al-Fayz set — All Mix (5–6 kishilik)",
+        "en": "Al-Fayz set — All Mix (5–6 people)",
+        "ko": "알파이즈 세트 — 올 믹스 (5–6인분)",
+        "ru": "Сет Al-Fayz — All Mix (на 5–6 человек)"
       },
       "desc": {
         "uz": "Katta taxtada hamma go'shtlar: qiyma kabob, qo'y va mol go'shti kaboblari, tovuq oyoqchalari, lavash, piyoz, limon va souslar.",
         "en": "Every meat on one big board: minced kebab, lamb and beef skewers, chicken legs, lavash, onion, lemon and sauces.",
         "ko": "큰 나무 판에 모든 고기: 다진 고기 케밥, 양고기·소고기 꼬치, 닭다리, 라바시, 양파, 레몬, 소스.",
         "ru": "Все виды мяса на большой доске: люля-кебаб, шашлык из баранины и говядины, куриные ножки, лаваш, лук, лимон и соусы."
-      }
+      },
+      "ready": 30
     },
     {
       "id": "kazan-plov-lazer",
       "cat": "preorder",
       "price": 100000,
-      "image": "images/plov.webp",
+      "image": "images/osh-tovoq.webp",
       "name": {
-        "uz": "Qozon osh (lazer guruch)",
-        "en": "Kazan plov (Lazer rice)",
-        "ko": "카잔 필라프 (라제르 쌀)",
-        "ru": "Плов в казане (рис лазер)"
+        "uz": "Buyurtma osh (lazer guruch)",
+        "en": "Pre-order plov (Lazer rice)",
+        "ko": "주문 필라프 (라제르 쌀)",
+        "ru": "Плов на заказ (рис лазер)"
       },
       "desc": {
-        "uz": "Oldindan buyurtma: katta qozonda lazer guruchidan damlangan osh, qo'y go'shti va sariq sabzi bilan.",
-        "en": "Pre-order: a big kazan of plov made with Lazer rice, lamb and yellow carrots.",
-        "ko": "사전 주문: 라제르 쌀과 양고기, 당근으로 큰 카잔에 지은 필라프.",
-        "ru": "Под заказ: большой казан плова из риса лазер с бараниной и жёлтой морковью."
-      }
+        "uz": "1 kg lazer guruchidan katta tovoqda osh — 8–10 kishilik. Qo'y go'shti, sariq sabzi, bedana tuxumi bilan.",
+        "en": "1 kg of Lazer rice, served on a big platter for 8–10 people. Lamb, yellow carrots and quail eggs.",
+        "ko": "라제르 쌀 1kg, 8–10인분 큰 접시. 양고기, 당근, 메추리알.",
+        "ru": "1 кг риса лазер на большом блюде, на 8–10 человек. Баранина, жёлтая морковь, перепелиные яйца."
+      },
+      "ready": 120
     },
     {
       "id": "kazan-plov-devzira",
       "cat": "preorder",
       "price": 105000,
-      "image": "images/plov.webp",
+      "image": "images/osh-tovoq.webp",
       "name": {
-        "uz": "Qozon osh (devzira guruch)",
-        "en": "Kazan plov (Devzira rice)",
-        "ko": "카잔 필라프 (데브지라 쌀)",
-        "ru": "Плов в казане (рис девзира)"
+        "uz": "Buyurtma osh (devzira guruch)",
+        "en": "Pre-order plov (Devzira rice)",
+        "ko": "주문 필라프 (데브지라 쌀)",
+        "ru": "Плов на заказ (рис девзира)"
       },
       "desc": {
-        "uz": "Oldindan buyurtma: katta qozonda mashhur devzira guruchidan damlangan osh, qo'y go'shti va sariq sabzi bilan.",
-        "en": "Pre-order: a big kazan of plov made with famous Devzira rice, lamb and yellow carrots.",
-        "ko": "사전 주문: 유명한 데브지라 쌀과 양고기, 당근으로 큰 카잔에 지은 필라프.",
-        "ru": "Под заказ: большой казан плова из знаменитого риса девзира с бараниной и жёлтой морковью."
-      }
+        "uz": "1 kg devzira guruchidan katta tovoqda osh — 8–10 kishilik. Qo'y go'shti, sariq sabzi, bedana tuxumi bilan.",
+        "en": "1 kg of Devzira rice, served on a big platter for 8–10 people. Lamb, yellow carrots and quail eggs.",
+        "ko": "데브지라 쌀 1kg, 8–10인분 큰 접시. 양고기, 당근, 메추리알.",
+        "ru": "1 кг риса девзира на большом блюде, на 8–10 человек. Баранина, жёлтая морковь, перепелиные яйца."
+      },
+      "ready": 120
     }
   ],
   "credits": [
