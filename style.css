@@ -36,11 +36,11 @@ button { font: inherit; color: inherit; cursor: pointer; border: 0; background: 
 a { color: inherit; text-decoration: none; }
 img { display: block; max-width: 100%; }
 
-/* rounded brand lettering in deep lapis so it stands out on the cream background */
-.brand { font-family: "Fredoka", var(--font); font-weight: 700; letter-spacing: .04em; margin: 0; color: var(--lapis);
-  background: linear-gradient(160deg, #1B3F7E 10%, #1F4E8C 45%, #137C86 100%);
+/* rounded brand lettering — same deep bronze-gold as the logo emblem, dark enough for the cream background */
+.brand { font-family: "Fredoka", var(--font); font-weight: 700; letter-spacing: .04em; margin: 0; color: #8E5E16;
+  background: linear-gradient(160deg, #C08A2B 0%, #8E5E16 50%, #5E3B0B 100%);
   -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
-  filter: drop-shadow(0 2px 0 rgba(200, 150, 46, .55)) drop-shadow(0 8px 14px rgba(31, 78, 140, .18)); }
+  filter: drop-shadow(0 1px 0 rgba(255, 255, 255, .8)) drop-shadow(0 6px 12px rgba(94, 59, 11, .22)); }
 .brand-sub { margin: 4px 0 0; color: var(--ink-2); font-weight: 600; letter-spacing: .14em; text-transform: uppercase; font-size: 12px; }
 .ornament-line { height: 14px; background: var(--band) repeat-x center; opacity: .9; margin: 16px auto; width: min(320px, 80%); }
 
