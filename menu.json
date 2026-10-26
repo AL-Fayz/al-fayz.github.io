@@ -702,14 +702,18 @@
         "en": "Halal sausage in a soft bun with vegetables and sauces.",
         "ko": "할랄 소시지와 채소, 소스를 넣은 핫도그.",
         "ru": "Халяльная сосиска в булочке с овощами и соусами."
-      }
+      },
+      "images": [
+        "images/hot-dog.webp",
+        "images/hot-dog-2.webp"
+      ]
     },
     {
       "id": "hot-dog-big",
       "cat": "main",
       "group": "fastfood",
       "price": 8000,
-      "image": "images/hot-dog-big.webp",
+      "image": "images/hot-dog.webp",
       "name": {
         "uz": "Hot-dog katta (2 sosiska)",
         "en": "Hot dog big (2 sausages)",
@@ -721,7 +725,11 @@
         "en": "Big hot dog with two halal sausages, vegetables and sauces.",
         "ko": "할랄 소시지 2개가 들어간 큰 핫도그.",
         "ru": "Большой хот-дог с двумя халяльными сосисками, овощами и соусами."
-      }
+      },
+      "images": [
+        "images/hot-dog.webp",
+        "images/hot-dog-2.webp"
+      ]
     },
     {
       "id": "lavash-chicken",

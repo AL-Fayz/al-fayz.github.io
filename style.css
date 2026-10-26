@@ -211,3 +211,26 @@ main { max-width: 1100px; margin: 0 auto; padding: 0 16px; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
 }
+
+/* ---------- photo strip (several photos per dish) ---------- */
+.thumb { cursor: zoom-in; }
+.slides { position: relative; z-index: 1; display: flex; width: 100%; height: 100%; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
+.slides::-webkit-scrollbar { display: none; }
+.slides img { flex: 0 0 100%; scroll-snap-align: center; }
+.dots { position: absolute; z-index: 2; left: 0; right: 0; bottom: 6px; display: flex; justify-content: center; gap: 5px; pointer-events: none; }
+.dots i { width: 6px; height: 6px; border-radius: 50%; background: rgba(42, 32, 23, .25); transition: all .2s; }
+.dots i.on { width: 16px; border-radius: 9px; background: var(--turq); }
+
+/* ---------- full-screen photo viewer ---------- */
+.viewer { position: fixed; inset: 0; z-index: 80; background: rgba(20, 14, 8, .92); display: flex; flex-direction: column; justify-content: center;
+  opacity: 0; transition: opacity .25s; }
+.viewer.open { opacity: 1; }
+.viewer[hidden] { display: none; }
+.v-strip { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
+.v-strip::-webkit-scrollbar { display: none; }
+.v-pic { flex: 0 0 100%; scroll-snap-align: center; display: grid; place-items: center; padding: 0 12px; }
+.v-pic img { width: 100%; max-width: 900px; max-height: 78vh; object-fit: contain; transform: scale(.94); transition: transform .3s cubic-bezier(.2, .8, .2, 1); }
+.viewer.open .v-pic img { transform: none; }
+.v-title { text-align: center; color: #F6EBD6; font-weight: 800; font-size: 17px; margin-top: 14px; padding: 0 16px; }
+.v-close { position: absolute; top: calc(14px + env(safe-area-inset-top, 0px)); right: 14px; width: 42px; height: 42px; border-radius: 50%;
+  background: rgba(255, 255, 255, .15); color: #fff; font-size: 20px; }

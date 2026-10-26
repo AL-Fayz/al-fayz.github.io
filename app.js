@@ -66,9 +66,12 @@
 
   function cardHTML(item) {
     const qty = cart[item.id] || 0;
-    const img = item.image
-      ? `<img src="${esc(item.image)}" alt="${esc(tx(item.name))}" loading="lazy" decoding="async" onload="this.classList.add('loaded')" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'ph',textContent:'🍽️'}))">`
-      : placeholder(item);
+    const pics = photos(item);
+    const one = (src) => `<img src="${esc(src)}" alt="${esc(tx(item.name))}" loading="lazy" decoding="async" onload="this.classList.add('loaded')" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'ph',textContent:'🍽️'}))">`;
+    // several photos -> swipeable strip with dots; tapping any photo opens the full-screen viewer
+    const img = !pics.length ? placeholder(item)
+      : pics.length === 1 ? one(pics[0])
+      : `<div class="slides">${pics.map(one).join("")}</div><div class="dots">${pics.map((_, i) => `<i${i ? "" : ' class="on"'}></i>`).join("")}</div>`;
     // show the Korean name as a second line for non-Korean readers (helps when ordering by phone)
     const alt = lang === "ko" ? item.name.en : item.name.ko;
     return `<article class="card${qty ? " in-cart" : ""}" data-id="${item.id}">
@@ -88,6 +91,8 @@
   function readyText(m) {
     return m >= 60 && m % 60 === 0 ? `${m / 60} ${t("hours")}` : `${m} ${t("min")}`;
   }
+
+  const photos = (item) => item.images || (item.image ? [item.image] : []);
 
   function controlHTML(id, qty) {
     return qty
@@ -224,6 +229,14 @@
     if (btn) { change(btn.dataset.id, btn.dataset.act === "inc" ? 1 : -1); return; }
     const langBtn = e.target.closest("[data-lang]");
     if (langBtn) { setLang(langBtn.dataset.lang); return; }
+    const thumb = e.target.closest(".thumb");
+    if (thumb && thumb.querySelector("img")) {
+      const pics = photos(itemById(thumb.closest(".card").dataset.id));
+      const slides = thumb.querySelector(".slides");
+      openViewer(pics, slides ? Math.round(slides.scrollLeft / slides.clientWidth) : 0, tx(itemById(thumb.closest(".card").dataset.id).name));
+      return;
+    }
+    if (e.target.closest("#viewer")) { closeViewer(); return; }
     const desc = e.target.closest(".desc");
     if (desc) desc.closest(".card").classList.toggle("open");
   });
@@ -232,7 +245,32 @@
   $("#sheet-close").addEventListener("click", closeSheet);
   $("#sheet-backdrop").addEventListener("click", closeSheet);
   $("#clear-cart").addEventListener("click", () => { cart = {}; store.set(CART_KEY, "{}"); render(); closeSheet(); });
-  document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeSheet(); });
+  document.addEventListener("keydown", (e) => { if (e.key === "Escape") { closeSheet(); closeViewer(); } });
+
+  // keep the dots under a photo strip in step with swiping
+  document.addEventListener("scroll", (e) => {
+    const s = e.target;
+    if (!s.classList || !s.classList.contains("slides")) return;
+    const i = Math.round(s.scrollLeft / s.clientWidth);
+    s.nextElementSibling.querySelectorAll("i").forEach((d, k) => d.classList.toggle("on", k === i));
+  }, true);
+
+  /* ---------- full-screen photo viewer ---------- */
+  function openViewer(pics, start, title) {
+    const v = $("#viewer");
+    v.innerHTML = `<button class="v-close" aria-label="Close">✕</button><div class="v-strip">${pics
+      .map((p) => `<div class="v-pic"><img src="${esc(p)}" alt=""></div>`).join("")}</div><div class="v-title">${esc(title)}${
+      pics.length > 1 ? ` · ${pics.length} 📷` : ""}</div>`;
+    v.hidden = false; document.body.classList.add("lock");
+    const strip = $(".v-strip", v);
+    requestAnimationFrame(() => { strip.scrollLeft = start * strip.clientWidth; v.classList.add("open"); });
+  }
+  function closeViewer() {
+    const v = $("#viewer");
+    if (v.hidden) return;
+    v.classList.remove("open"); document.body.classList.remove("lock");
+    setTimeout(() => { v.hidden = true; v.innerHTML = ""; }, 250);
+  }
 
   // swipe the sheet down to close
   let startY = null;
