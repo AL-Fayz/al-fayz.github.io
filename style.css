@@ -47,9 +47,7 @@ img { display: block; max-width: 100%; }
   background: radial-gradient(120% 90% at 50% 0%, #FFF8E6 0%, var(--bg) 60%); }
 .hero::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 14px; background: var(--band) repeat-x center; opacity: .8; }
 .hero-pattern { position: absolute; inset: 0; background: var(--naqsh); background-size: 56px; opacity: .13;
-  -webkit-mask-image: radial-gradient(80% 70% at 50% 40%, #000 30%, transparent 85%); mask-image: radial-gradient(80% 70% at 50% 40%, #000 30%, transparent 85%);
-  animation: drift 60s linear infinite; }
-@keyframes drift { to { background-position: 560px 280px; } }
+  -webkit-mask-image: radial-gradient(80% 70% at 50% 40%, #000 30%, transparent 85%); mask-image: radial-gradient(80% 70% at 50% 40%, #000 30%, transparent 85%); }
 .hero-top { position: relative; display: flex; justify-content: space-between; align-items: center; }
 .halal-pill { font-size: 11px; font-weight: 800; letter-spacing: .12em; color: var(--turq); background: var(--turq-soft); padding: 6px 10px; border-radius: 99px; }
 .lang-btn { display: flex; gap: 6px; align-items: center; padding: 7px 12px; border-radius: 99px; background: var(--card); box-shadow: var(--shadow); font-size: 13px; }
@@ -62,7 +60,7 @@ img { display: block; max-width: 100%; }
 @keyframes rise { from { opacity: 0; transform: translateY(14px); } }
 
 /* ---------- TABS ---------- */
-.tabs { position: sticky; top: 0; z-index: 20; background: rgba(251, 246, 236, .88); backdrop-filter: saturate(1.4) blur(12px); -webkit-backdrop-filter: saturate(1.4) blur(12px);
+.tabs { position: sticky; top: 0; z-index: 20; background: rgba(251, 246, 236, .97);
   border-bottom: 1px solid var(--line); }
 .tabs-inner { display: flex; gap: 8px; overflow-x: auto; padding: 10px 16px; scrollbar-width: none; scroll-snap-type: x proximity; }
 .tabs-inner::-webkit-scrollbar { display: none; }
@@ -90,8 +88,7 @@ main { max-width: 1100px; margin: 0 auto; padding: 0 16px; }
 
 /* ---------- CARD ---------- */
 .card { position: relative; display: flex; flex-direction: column; background: var(--card); border-radius: var(--radius); box-shadow: var(--shadow);
-  border: 1px solid #F1E6D2; overflow: hidden; opacity: 0; transform: translateY(18px); transition: opacity .5s, transform .5s cubic-bezier(.2, .8, .2, 1); }
-.card.in { opacity: 1; transform: none; }
+  border: 1px solid #F1E6D2; overflow: hidden; }
 .card .corner { position: absolute; width: 26px; height: 26px; color: var(--gold); opacity: .55; z-index: 2; pointer-events: none; }
 .card .corner.tl { top: 6px; left: 6px; }
 .card .corner.br { bottom: 6px; right: 6px; transform: rotate(180deg); }
@@ -140,6 +137,8 @@ main { max-width: 1100px; margin: 0 auto; padding: 0 16px; }
 .map-btn b { width: 24px; height: 24px; border-radius: 7px; display: grid; place-items: center; color: #fff; font-size: 13px; }
 .naver b { background: #03C75A; }
 .kakao b { background: #FEE500; color: #3A1D1D; }
+.f-credits { font-size: 10.5px; color: var(--ink-2); opacity: .55; margin: 6px auto 0; max-width: 360px; line-height: 1.5; }
+.f-credits a { text-decoration: underline; }
 .f-note { font-size: 12px; color: var(--ink-2); opacity: .7; margin-top: 18px; }
 
 /* ---------- CART BAR ---------- */
@@ -208,5 +207,4 @@ main { max-width: 1100px; margin: 0 auto; padding: 0 16px; }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
-  .card { opacity: 1; transform: none; }
 }
