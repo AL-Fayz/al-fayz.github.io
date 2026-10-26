@@ -1,0 +1,266 @@
+{
+  "restaurant": {
+    "name": "AL-FAYZ",
+    "phone": "010-8126-0990",
+    "phoneRaw": "01081260990",
+    "address": {
+      "uz": "경기도 시흥시 정왕동 1594-12, 2-qavat",
+      "en": "1594-12, Jeongwang-dong, Siheung-si, Gyeonggi-do, 2F",
+      "ko": "경기도 시흥시 정왕동 1594-12, 2층",
+      "ru": "1594-12, Чонван-дон, Сихын-си, Кёнгидо, 2 этаж"
+    },
+    "mapQuery": "경기도 시흥시 정왕동 1594-12"
+  },
+
+  "categories": [
+    { "id": "main",     "icon": "🍛", "name": { "uz": "Quyuq ovqatlar", "en": "Main dishes", "ko": "메인 요리", "ru": "Вторые блюда" } },
+    { "id": "soups",    "icon": "🍲", "name": { "uz": "Suyuq ovqatlar", "en": "Soups", "ko": "수프", "ru": "Супы" } },
+    { "id": "salads",   "icon": "🥗", "name": { "uz": "Salatlar", "en": "Salads", "ko": "샐러드", "ru": "Салаты" } },
+    { "id": "drinks",   "icon": "🫖", "name": { "uz": "Ichimliklar", "en": "Drinks", "ko": "음료", "ru": "Напитки" } },
+    { "id": "extras",   "icon": "🫓", "name": { "uz": "Qo'shimchalar", "en": "Sides & bread", "ko": "사이드 · 빵", "ru": "Гарниры и хлеб" } },
+    { "id": "desserts", "icon": "🍯", "name": { "uz": "Shirinliklar", "en": "Desserts", "ko": "디저트", "ru": "Десерты" } },
+    { "id": "preorder", "icon": "🎉", "name": { "uz": "Buyurtma taomlar", "en": "Pre-order dishes", "ko": "예약 주문 요리", "ru": "Блюда на заказ" },
+      "note": { "uz": "Oldindan buyurtma qilinadigan katta taomlar — oldindan qo'ng'iroq qiling.", "en": "Large dishes made to order — please call ahead.", "ko": "미리 주문하는 큰 요리 — 사전에 전화 주세요.", "ru": "Большие блюда под заказ — позвоните заранее." } }
+  ],
+
+  "groups": {
+    "national": { "uz": "Milliy taomlar", "en": "Uzbek classics", "ko": "우즈벡 전통 요리", "ru": "Национальные блюда" },
+    "mix":      { "uz": "All Mix — katta to'plamlar", "en": "All Mix platters", "ko": "올 믹스 플래터", "ru": "Ассорти All Mix" },
+    "kebab":    { "uz": "Kabob va shashlik", "en": "Kebabs & skewers", "ko": "케밥 · 꼬치", "ru": "Шашлык и кебаб" },
+    "fastfood": { "uz": "Fast food", "en": "Fast food", "ko": "패스트푸드", "ru": "Фастфуд" }
+  },
+
+  "items": [
+    { "id": "plov", "cat": "main", "group": "national", "price": 12000, "image": "images/plov.webp",
+      "name": { "uz": "Osh (palov)", "en": "Plov", "ko": "필라프 (양고기)", "ru": "Плов" },
+      "desc": { "uz": "Qo'y go'shti, sariq sabzi va guruchdan qozonda damlangan an'anaviy o'zbek oshi.", "en": "Traditional Uzbek rice pilaf slow-cooked in a kazan with lamb and yellow carrots.", "ko": "양고기와 당근을 넣어 카잔 솥에서 지은 전통 우즈벡 볶음밥.", "ru": "Традиционный узбекский плов из риса, баранины и жёлтой моркови, приготовленный в казане." } },
+
+    { "id": "khazan-kebab-small", "cat": "main", "group": "national", "price": 14000, "image": "images/khazan-kebab.webp",
+      "name": { "uz": "Qozon kabob (kichik)", "en": "Khazan kebab (small)", "ko": "카잔 케밥-양고기 (소)", "ru": "Казан-кебаб (малый)" },
+      "desc": { "uz": "Qozonda qovurilgan yumshoq qo'y go'shti, kartoshka fri va salat bilan.", "en": "Tender lamb pan-roasted in a kazan, served with fries and fresh salad.", "ko": "카잔에서 구운 부드러운 양고기, 감자튀김과 샐러드 곁들임.", "ru": "Нежная баранина, обжаренная в казане, с картофелем фри и салатом." } },
+
+    { "id": "khazan-kebab-large", "cat": "main", "group": "national", "price": 16000, "image": "images/khazan-kebab.webp",
+      "name": { "uz": "Qozon kabob (katta)", "en": "Khazan kebab (large)", "ko": "카잔 케밥-양고기 (대)", "ru": "Казан-кебаб (большой)" },
+      "desc": { "uz": "Katta porsiya: qozonda qovurilgan qo'y go'shti, fri va salat bilan.", "en": "Large portion of kazan-roasted lamb with fries and salad.", "ko": "카잔에서 구운 양고기 큰 사이즈, 감자튀김과 샐러드 곁들임.", "ru": "Большая порция баранины из казана с картофелем фри и салатом." } },
+
+    { "id": "khazan-kebab-plov", "cat": "main", "group": "national", "price": 15500, "image": "images/khazan-kebab-plov.webp",
+      "name": { "uz": "Qozon kabob + osh", "en": "Khazan kebab + Plov", "ko": "카잔 케밥 + 필라프", "ru": "Казан-кебаб с пловом" },
+      "desc": { "uz": "Qozon kabob (qo'y go'shti) va osh bir likopchada, fri va sabzi salat bilan.", "en": "Kazan-roasted lamb and plov on one plate, with fries and carrot salad.", "ko": "카잔 양고기 케밥과 필라프를 한 접시에, 감자튀김·당근 샐러드 곁들임.", "ru": "Казан-кебаб из баранины и плов на одной тарелке, с фри и морковным салатом." } },
+
+    { "id": "mol-goshti-combo", "cat": "main", "group": "national", "price": 14000, "image": "images/mol-goshti-combo.webp",
+      "name": { "uz": "Mol go'shti kombo", "en": "Beef combo (Mol go'shti)", "ko": "소고기 콤보", "ru": "Комбо с говядиной" },
+      "desc": { "uz": "Qovurilgan mol go'shti bo'laklari, guruch, piyoz va yangi sabzavotlar bilan.", "en": "Pan-fried beef chunks with rice, onion rings and fresh vegetables.", "ko": "볶은 소고기에 밥, 양파, 신선한 채소를 곁들인 콤보.", "ru": "Обжаренные кусочки говядины с рисом, луком и свежими овощами." } },
+
+    { "id": "beef-stroganoff-small", "cat": "main", "group": "national", "price": 14000, "image": "images/beef-stroganoff.webp",
+      "name": { "uz": "Befstroganov (kichik)", "en": "Beef Stroganoff (small)", "ko": "쇠고기 스트로가노프 (소)", "ru": "Бефстроганов (малый)" },
+      "desc": { "uz": "Sousda qovurilgan mol go'shti bo'lakchalari, kartoshka fri va salat bilan.", "en": "Sautéed beef strips in savoury sauce with fries and salad.", "ko": "소스에 볶은 소고기, 감자튀김과 샐러드 곁들임.", "ru": "Говядина, тушённая в соусе, с картофелем фри и салатом." } },
+
+    { "id": "beef-stroganoff-large", "cat": "main", "group": "national", "price": 16000, "image": "images/beef-stroganoff.webp",
+      "name": { "uz": "Befstroganov (katta)", "en": "Beef Stroganoff (large)", "ko": "쇠고기 스트로가노프 (대)", "ru": "Бефстроганов (большой)" },
+      "desc": { "uz": "Katta porsiya: sousli mol go'shti, kartoshka fri va salat bilan.", "en": "Large portion of beef in savoury sauce with fries and salad.", "ko": "소스에 볶은 소고기 큰 사이즈, 감자튀김과 샐러드 곁들임.", "ru": "Большая порция говядины в соусе с картофелем фри и салатом." } },
+
+    { "id": "chicken-tabaka", "cat": "main", "group": "national", "price": 12000, "image": "images/chicken-tabaka.webp",
+      "name": { "uz": "Tovuq tabaka", "en": "Chicken Tabaka", "ko": "치킨 타바카", "ru": "Цыплёнок табака" },
+      "desc": { "uz": "Bosim ostida qizartirib qovurilgan tovuq, kartoshka fri va salat bilan.", "en": "Crispy pan-pressed fried chicken with fries and salad.", "ko": "눌러서 바삭하게 구운 닭고기, 감자튀김과 샐러드 곁들임.", "ru": "Хрустящий жареный цыплёнок под прессом, с фри и салатом." } },
+
+    { "id": "chicken-leg", "cat": "main", "group": "national", "price": 13000, "image": "images/chicken-leg.webp",
+      "name": { "uz": "Tovuq oyoqchalari", "en": "Chicken legs", "ko": "닭다리", "ru": "Куриные ножки" },
+      "desc": { "uz": "Ziravorli qovurilgan tovuq oyoqchalari, guruch, fri va sabzi salat bilan.", "en": "Spiced roasted chicken drumsticks with rice, fries and carrot salad.", "ko": "향신료로 구운 닭다리, 밥·감자튀김·당근 샐러드 곁들임.", "ru": "Пряные запечённые куриные ножки с рисом, фри и морковным салатом." } },
+
+    { "id": "minced-baked-meat", "cat": "main", "group": "national", "price": 13000, "image": "images/minced-baked-meat.webp",
+      "name": { "uz": "Pishirilgan qiyma", "en": "Minced baked meat", "ko": "다진 구운 고기 (소고기)", "ru": "Запечённый фарш" },
+      "desc": { "uz": "Pishloq va mayonez ostida pishirilgan mol go'shti qiymasi, fri bilan.", "en": "Minced beef baked under cheese and mayo, served with fries.", "ko": "치즈와 마요네즈를 올려 구운 다진 소고기, 감자튀김 곁들임.", "ru": "Говяжий фарш, запечённый под сыром и майонезом, с картофелем фри." } },
+
+    { "id": "brizol", "cat": "main", "group": "national", "price": 13000, "image": "images/brizol.webp",
+      "name": { "uz": "Brizol", "en": "Brizol", "ko": "브리졸 (소고기)", "ru": "Бризоль" },
+      "desc": { "uz": "Tuxumli qobiqqa o'ralgan mol go'shti qiymasi, sous, fri va tuzlangan bodring bilan.", "en": "Minced beef wrapped in an egg crêpe, with sauce, fries and pickles.", "ko": "달걀 지단으로 감싼 다진 소고기, 소스·감자튀김·피클 곁들임.", "ru": "Говяжий фарш в яичном блинчике, с соусом, фри и солёными огурцами." } },
+
+    { "id": "kotlet", "cat": "main", "group": "national", "price": 5500, "image": "images/kotlet.webp",
+      "name": { "uz": "Kotlet", "en": "Kotlet (meat patty)", "ko": "커틀릿", "ru": "Котлета" },
+      "desc": { "uz": "Mol go'shti qiymasidan qovurilgan uy kotleti, mayonezli sous bilan.", "en": "Home-style pan-fried beef patty topped with creamy sauce.", "ko": "다진 소고기로 만든 수제 커틀릿, 크림 소스.", "ru": "Домашняя котлета из говяжьего фарша под сливочным соусом." } },
+
+    { "id": "manti", "cat": "main", "group": "national", "price": 13000, "image": "images/manti.webp",
+      "name": { "uz": "Manti", "en": "Manti", "ko": "만두 (소고기)", "ru": "Манты" },
+      "desc": { "uz": "Bug'da pishirilgan katta chuchvaralar: mol go'shti va piyoz, qaymoq bilan.", "en": "Large steamed dumplings filled with beef and onion, served with sour cream.", "ko": "소고기와 양파로 속을 채운 찐만두, 사워크림 곁들임.", "ru": "Паровые манты с говядиной и луком, подаются со сметаной." } },
+
+    { "id": "honim", "cat": "main", "group": "national", "price": 12000, "image": "images/honim.webp",
+      "name": { "uz": "Xonim (o'rama)", "en": "Honim (steamed roll)", "ko": "호님 (찐 롤)", "ru": "Ханум (рулет)" },
+      "desc": { "uz": "Yupqa xamirga o'ralgan go'sht va sabzavotli bug'da pishgan rulet.", "en": "Thin dough rolled with meat and vegetables, then steamed.", "ko": "얇은 반죽에 고기와 채소를 말아 쪄낸 롤.", "ru": "Тонкое тесто, свёрнутое рулетом с мясом и овощами, приготовленное на пару." } },
+
+    { "id": "fried-noodles", "cat": "main", "group": "national", "price": 12000, "image": "images/fried-noodles.webp",
+      "name": { "uz": "Qovurma lag'mon", "en": "Fried noodles", "ko": "튀긴 라그만", "ru": "Жареный лагман" },
+      "desc": { "uz": "Qo'lda cho'zilgan lag'mon, mol go'shti va sabzavotlar bilan qovurilgan, tuxum bilan.", "en": "Hand-pulled noodles stir-fried with beef and vegetables, topped with egg.", "ko": "손으로 뽑은 면을 소고기·채소와 볶고 계란을 올림.", "ru": "Тянутая лапша, обжаренная с говядиной и овощами, с яйцом." } },
+
+    { "id": "all-mix", "cat": "main", "group": "mix", "price": 19500, "image": "images/all-mix.webp",
+      "name": { "uz": "All Mix", "en": "All Mix", "ko": "올 믹스", "ru": "Олл Микс" },
+      "desc": { "uz": "Katta to'plam: qozon kabob, qiyma kabob, tovuq, fri va salatlar.", "en": "Big platter: kazan lamb, minced kebab, chicken, fries and salads.", "ko": "카잔 양고기·다진 고기 꼬치·닭고기·감자튀김·샐러드 모둠.", "ru": "Большое ассорти: казан-кебаб, люля, курица, фри и салаты." } },
+
+    { "id": "all-mix-2", "cat": "main", "group": "mix", "price": 19500, "image": "images/all-mix-2.webp",
+      "name": { "uz": "All Mix 2", "en": "All Mix 2", "ko": "올 믹스 2", "ru": "Олл Микс 2" },
+      "desc": { "uz": "Osh, qovurilgan mol go'shti, tovuq, fri va salat — bir likopchada.", "en": "Plov, pan-fried beef, chicken, fries and salad on one platter.", "ko": "필라프·볶은 소고기·닭고기·감자튀김·샐러드 모둠.", "ru": "Плов, жареная говядина, курица, фри и салат на одном блюде." } },
+
+    { "id": "all-mix-kotlet", "cat": "main", "group": "mix", "price": 19500, "image": "images/all-mix-kotlet.webp",
+      "name": { "uz": "All Mix (kotlet)", "en": "All Mix (Kotlet)", "ko": "올 믹스 (커틀릿)", "ru": "Олл Микс (котлета)" },
+      "desc": { "uz": "Qiyma kabob, kotlet, qovurilgan go'sht, fri va salat to'plami.", "en": "Minced kebab, kotlet, roasted meat, fries and salad.", "ko": "다진 고기 꼬치·커틀릿·구운 고기·감자튀김·샐러드 모둠.", "ru": "Люля-кебаб, котлета, жареное мясо, фри и салат." } },
+
+    { "id": "all-mix-mantu", "cat": "main", "group": "mix", "price": 19500, "image": "images/all-mix-mantu.webp",
+      "name": { "uz": "All Mix (manti)", "en": "All Mix (Manti)", "ko": "올 믹스 (만두)", "ru": "Олл Микс (манты)" },
+      "desc": { "uz": "Manti, qovurilgan mol go'shti, tovuq oyoqcha, fri va salat to'plami.", "en": "Manti, pan-fried beef, chicken leg, fries and salad.", "ko": "만두·볶은 소고기·닭다리·감자튀김·샐러드 모둠.", "ru": "Манты, жареная говядина, куриная ножка, фри и салат." } },
+
+    { "id": "minced-beef-kebab", "cat": "main", "group": "kebab", "price": 7500, "image": "images/minced-beef-kebab.webp",
+      "name": { "uz": "Qiyma kabob (lyulya)", "en": "Minced beef kebab", "ko": "다진 소고기 꼬치", "ru": "Люля-кебаб из говядины" },
+      "desc": { "uz": "Ziravorli mol go'shti qiymasidan cho'g'da pishirilgan kabob, piyoz bilan.", "en": "Spiced minced beef grilled on a skewer, with marinated onion.", "ko": "양념한 다진 소고기를 꼬치에 구움, 절인 양파 곁들임.", "ru": "Пряный говяжий фарш на шампуре с маринованным луком." } },
+
+    { "id": "lamb-kebab", "cat": "main", "group": "kebab", "price": 8500, "image": "images/lamb-kebab.webp",
+      "name": { "uz": "Qo'y go'shti kabob", "en": "Lamb kebab", "ko": "양고기 꼬치", "ru": "Шашлык из баранины" },
+      "desc": { "uz": "Marinadlangan qo'y go'shti bo'laklaridan cho'g'da pishirilgan shashlik.", "en": "Marinated lamb chunks grilled over charcoal.", "ko": "양념한 양고기를 숯불에 구운 꼬치.", "ru": "Маринованная баранина, жаренная на углях." } },
+
+    { "id": "chicken-kebab", "cat": "main", "group": "kebab", "price": 7000, "image": "images/chicken-kebab.webp",
+      "name": { "uz": "Tovuq kabob", "en": "Chicken kebab", "ko": "닭고기 꼬치", "ru": "Куриный шашлык" },
+      "desc": { "uz": "Marinadlangan tovuq go'shtidan shashlik, achchiq sous va piyoz bilan.", "en": "Marinated chicken skewer with spicy sauce and onion.", "ko": "양념 닭고기 꼬치, 매운 소스와 양파 곁들임.", "ru": "Шашлык из маринованной курицы с острым соусом и луком." } },
+
+    { "id": "kebab-set", "cat": "main", "group": "kebab", "price": 15000, "image": "images/kebab-set.webp",
+      "name": { "uz": "Kabob set", "en": "Kebab set", "ko": "꼬치 세트", "ru": "Шашлычный сет" },
+      "desc": { "uz": "Mol go'shti va tovuq kabobidan to'plam, sous va piyoz bilan.", "en": "Beef and chicken skewers together, with sauce and onion.", "ko": "소고기·닭고기 꼬치 세트, 소스와 양파 곁들임.", "ru": "Сет из шашлыка из говядины и курицы, с соусом и луком." } },
+
+    { "id": "adana-kebab-set", "cat": "main", "group": "kebab", "price": 17000, "image": "images/adana-kebab-set.webp",
+      "name": { "uz": "Adana kabob set (achchiq)", "en": "Adana kebab set (spicy)", "ko": "아다나 케밥 세트 (매운 소고기)", "ru": "Адана-кебаб сет (острый)" },
+      "desc": { "uz": "Achchiq mol go'shti qiymasidan uzun kabob, lavash, non, fri va sabzavotlar bilan.", "en": "Long spicy minced-beef kebab with flatbread, bread, fries and vegetables.", "ko": "매콤한 다진 소고기 케밥, 라바시·빵·감자튀김·채소 곁들임.", "ru": "Острый кебаб из говяжьего фарша с лавашем, лепёшкой, фри и овощами." } },
+
+    { "id": "somsa", "cat": "main", "group": "fastfood", "price": 4000, "image": "images/somsa.webp",
+      "name": { "uz": "Somsa", "en": "Somsa", "ko": "사무사", "ru": "Самса" },
+      "desc": { "uz": "Qatlama xamirdan, go'sht va piyoz to'ldirilgan tandir somsa.", "en": "Flaky pastry filled with meat and onion, baked golden.", "ko": "고기와 양파를 넣어 구운 겹겹이 바삭한 페이스트리.", "ru": "Слоёная самса с мясом и луком, запечённая до золотистой корочки." } },
+
+    { "id": "beef-burger", "cat": "main", "group": "fastfood", "price": 8000, "image": "images/beef-burger.webp",
+      "name": { "uz": "Burger (mol go'shti)", "en": "Beef burger", "ko": "소고기 버거", "ru": "Бургер с говядиной" },
+      "desc": { "uz": "Mol go'shti kotleti, yangi sabzavotlar va sous bilan grilda qizartirilgan bulochka.", "en": "Beef patty with fresh vegetables and sauce in a grilled bun.", "ko": "소고기 패티와 신선한 채소, 소스를 넣은 그릴 번 버거.", "ru": "Говяжья котлета, свежие овощи и соус в булочке-гриль." } },
+
+    { "id": "burger-set", "cat": "main", "group": "fastfood", "price": 11000, "image": "images/burger-set.webp",
+      "name": { "uz": "Burger set", "en": "Burger set", "ko": "버거 세트", "ru": "Бургер-сет" },
+      "desc": { "uz": "Mol go'shtli burger, kartoshka fri va ichimlik.", "en": "Beef burger with fries and a drink.", "ko": "소고기 버거, 감자튀김, 음료 세트.", "ru": "Бургер с говядиной, картофель фри и напиток." } },
+
+    { "id": "hot-dog", "cat": "main", "group": "fastfood", "price": 7000, "image": "",
+      "name": { "uz": "Hot-dog", "en": "Hot dog", "ko": "핫도그", "ru": "Хот-дог" },
+      "desc": { "uz": "Halol sosiska, yangi bulochka, sabzavotlar va souslar bilan.", "en": "Halal sausage in a soft bun with vegetables and sauces.", "ko": "할랄 소시지와 채소, 소스를 넣은 핫도그.", "ru": "Халяльная сосиска в булочке с овощами и соусами." } },
+
+    { "id": "hot-dog-big", "cat": "main", "group": "fastfood", "price": 8000, "image": "",
+      "name": { "uz": "Hot-dog katta (2 sosiska)", "en": "Hot dog big (2 sausages)", "ko": "핫도그 빅 (소시지 2개)", "ru": "Хот-дог большой (2 сосиски)" },
+      "desc": { "uz": "Ikki dona halol sosiskali katta hot-dog, sabzavot va souslar bilan.", "en": "Big hot dog with two halal sausages, vegetables and sauces.", "ko": "할랄 소시지 2개가 들어간 큰 핫도그.", "ru": "Большой хот-дог с двумя халяльными сосисками, овощами и соусами." } },
+
+    { "id": "lavash-chicken", "cat": "main", "group": "fastfood", "price": 9000, "image": "images/lavash-chicken.webp",
+      "name": { "uz": "Lavash (tovuqli)", "en": "Lavash chicken", "ko": "라바시 치킨", "ru": "Лаваш с курицей" },
+      "desc": { "uz": "Yupqa lavashga o'ralgan qovurilgan tovuq, sabzavotlar va sous.", "en": "Grilled chicken, vegetables and sauce wrapped in thin lavash.", "ko": "구운 닭고기와 채소, 소스를 얇은 라바시에 싼 랩.", "ru": "Курица-гриль, овощи и соус в тонком лаваше." } },
+
+    { "id": "lavash-beef", "cat": "main", "group": "fastfood", "price": 11000, "image": "images/lavash-beef.webp",
+      "name": { "uz": "Lavash (mol go'shtli)", "en": "Lavash beef", "ko": "라바시 소고기", "ru": "Лаваш с говядиной" },
+      "desc": { "uz": "Yupqa lavashga o'ralgan qovurilgan mol go'shti, sabzavotlar va sous.", "en": "Grilled beef, vegetables and sauce wrapped in thin lavash.", "ko": "구운 소고기와 채소, 소스를 얇은 라바시에 싼 랩.", "ru": "Говядина-гриль, овощи и соус в тонком лаваше." } },
+
+    { "id": "lavash-set-chicken", "cat": "main", "group": "fastfood", "price": 13000, "image": "images/lavash-set-chicken.webp",
+      "name": { "uz": "Lavash set (tovuq)", "en": "Lavash set chicken", "ko": "라바시 세트 치킨", "ru": "Лаваш-сет с курицей" },
+      "desc": { "uz": "Tovuqli lavash, kartoshka fri, souslar va ichimlik.", "en": "Chicken lavash with fries, sauces and a drink.", "ko": "치킨 라바시, 감자튀김, 소스, 음료 세트.", "ru": "Лаваш с курицей, картофель фри, соусы и напиток." } },
+
+    { "id": "lavash-set-beef", "cat": "main", "group": "fastfood", "price": 15000, "image": "images/lavash-set-beef.webp",
+      "name": { "uz": "Lavash set (mol go'shti)", "en": "Lavash set beef", "ko": "라바시 세트 소고기", "ru": "Лаваш-сет с говядиной" },
+      "desc": { "uz": "Mol go'shtli lavash, kartoshka fri, souslar va ichimlik.", "en": "Beef lavash with fries, sauces and a drink.", "ko": "소고기 라바시, 감자튀김, 소스, 음료 세트.", "ru": "Лаваш с говядиной, картофель фри, соусы и напиток." } },
+
+    { "id": "lagmon", "cat": "soups", "price": 12000, "image": "images/lagmon.webp",
+      "name": { "uz": "Lag'mon", "en": "Lagman noodle soup", "ko": "라그만", "ru": "Лагман" },
+      "desc": { "uz": "Qo'lda cho'zilgan lag'mon, mol go'shti va sabzavotli quyuqroq sho'rva bilan.", "en": "Hand-pulled noodles in a rich broth with beef and vegetables.", "ko": "손으로 뽑은 면에 소고기와 채소를 넣은 진한 국물 요리.", "ru": "Тянутая лапша в густом бульоне с говядиной и овощами." } },
+
+    { "id": "mastava", "cat": "soups", "price": 10000, "image": "images/mastava.webp",
+      "name": { "uz": "Mastava", "en": "Mastava (rice soup)", "ko": "마스타바 (쌀 수프)", "ru": "Мастава" },
+      "desc": { "uz": "Guruch, go'sht, kartoshka va pomidorli qaynatma sho'rva, ko'katlar bilan.", "en": "Hearty tomato soup with rice, meat, potato and fresh herbs.", "ko": "쌀·고기·감자를 넣은 토마토 수프, 허브 곁들임.", "ru": "Сытный томатный суп с рисом, мясом, картофелем и зеленью." } },
+
+    { "id": "shorva", "cat": "soups", "price": 11000, "image": "images/shorva.webp",
+      "name": { "uz": "Sho'rva (qo'y go'shti)", "en": "Shurpa (lamb soup)", "ko": "쇼르바 (양고기 수프)", "ru": "Шурпа из баранины" },
+      "desc": { "uz": "Qo'y go'shti, butun kartoshka, sabzi va piyozdan tiniq sho'rva.", "en": "Clear lamb broth with whole potatoes, carrot and onion.", "ko": "양고기와 통감자, 당근, 양파로 끓인 맑은 수프.", "ru": "Прозрачный бульон из баранины с картофелем, морковью и луком." } },
+
+    { "id": "chuchvara", "cat": "soups", "price": 11000, "image": "images/chuchvara.webp",
+      "name": { "uz": "Chuchvara", "en": "Chuchvara (dumpling soup)", "ko": "추추바라 (만둣국)", "ru": "Чучвара" },
+      "desc": { "uz": "Mol go'shti qiymali mayda chuchvaralar, pomidorli sho'rvada.", "en": "Small beef dumplings in a light tomato broth.", "ko": "소고기 소를 넣은 작은 만두를 토마토 국물에 끓임.", "ru": "Маленькие пельмени с говядиной в томатном бульоне." } },
+
+    { "id": "pelmen", "cat": "soups", "price": 8000, "image": "images/pelmen.webp",
+      "name": { "uz": "Pelmen", "en": "Pelmeni", "ko": "펠메니", "ru": "Пельмени" },
+      "desc": { "uz": "Go'shtli pelmenlar tiniq sho'rvada, ko'k piyoz bilan.", "en": "Meat dumplings in clear broth with green onion.", "ko": "고기 만두를 맑은 국물에, 파 곁들임.", "ru": "Мясные пельмени в прозрачном бульоне с зелёным луком." } },
+
+    { "id": "qaylali-manti", "cat": "soups", "price": 13000, "image": "images/qaylali-manti.webp",
+      "name": { "uz": "Qaylali manti (manti sho'rva)", "en": "Mantu soup", "ko": "만두 수프", "ru": "Манты в соусе" },
+      "desc": { "uz": "Manti go'sht va sabzavotli quyuq qaylada.", "en": "Manti dumplings in a thick sauce with beef and vegetables.", "ko": "소고기·채소가 든 진한 소스에 만두를 넣은 요리.", "ru": "Манты в густом соусе с говядиной и овощами." } },
+
+    { "id": "gulyash", "cat": "soups", "price": 12000, "image": "images/gulyash.webp",
+      "name": { "uz": "Amerikancha gulyash", "en": "American goulash", "ko": "아메리칸 굴라시", "ru": "Гуляш по-американски" },
+      "desc": { "uz": "Mol go'shti va sabzavotli quyuq gulyash, guruch bilan.", "en": "Thick beef and vegetable goulash served with rice.", "ko": "소고기·채소로 끓인 진한 굴라시, 밥 곁들임.", "ru": "Густой гуляш из говядины и овощей с рисом." } },
+
+    { "id": "beef-say", "cat": "soups", "price": 16000, "image": "images/beef-say.webp",
+      "name": { "uz": "Say (mol go'shti)", "en": "Beef Say", "ko": "소고기 사이", "ru": "Сай из говядины" },
+      "desc": { "uz": "Mol go'shti, bulg'or qalampiri va sabzavotlar qaylada, issiq tovada tortiladi.", "en": "Beef with bell peppers and vegetables in sauce, served on a sizzling pan.", "ko": "소고기와 파프리카, 채소를 소스에 볶아 뜨거운 철판에 제공.", "ru": "Говядина с болгарским перцем и овощами в соусе, подаётся на горячей сковороде." } },
+
+    { "id": "olive-salad", "cat": "salads", "price": 6000, "image": "images/olive-salad.webp",
+      "name": { "uz": "Olivye salati", "en": "Olivier salad", "ko": "올리비에 샐러드", "ru": "Салат Оливье" },
+      "desc": { "uz": "Kartoshka, sabzi, tuxum, no'xat va bodring, mayonez bilan.", "en": "Potato, carrot, egg, peas and pickles dressed with mayonnaise.", "ko": "감자·당근·계란·완두콩·오이를 마요네즈로 버무린 샐러드.", "ru": "Картофель, морковь, яйцо, горошек и огурцы с майонезом." } },
+
+    { "id": "caesar-salad", "cat": "salads", "price": 8000, "image": "images/caesar-salad.webp",
+      "name": { "uz": "Sezar salati", "en": "Caesar salad", "ko": "시저 샐러드", "ru": "Салат Цезарь" },
+      "desc": { "uz": "Tovuq go'shti, salat bargi, suxarik va maxsus sous.", "en": "Chicken, lettuce, croutons and creamy Caesar dressing.", "ko": "닭고기·양상추·크루통에 시저 드레싱.", "ru": "Курица, листья салата, сухарики и соус Цезарь." } },
+
+    { "id": "okroshka", "cat": "salads", "price": 6000, "image": "images/okroshka.webp",
+      "name": { "uz": "Okroshka", "en": "Okroshka", "ko": "오크로시카", "ru": "Окрошка" },
+      "desc": { "uz": "Qatiq asosidagi sovuq taom: bodring, rediska, tuxum va ko'katlar.", "en": "Cold yogurt soup with cucumber, radish, egg and fresh herbs.", "ko": "요거트 베이스에 오이·무·계란·허브를 넣은 차가운 수프.", "ru": "Холодный суп на кефире с огурцом, редисом, яйцом и зеленью." } },
+
+    { "id": "man-salad", "cat": "salads", "price": 7000, "image": "images/man-salad.webp",
+      "name": { "uz": "\"Erkaklar\" salati", "en": "Man salad", "ko": "남자 샐러드", "ru": "Мужской салат" },
+      "desc": { "uz": "Qaynatilgan go'sht, tuzlangan qo'ziqorin, piyoz va mayonezli to'yimli salat.", "en": "Hearty salad of boiled meat, pickled mushrooms and onion with mayo.", "ko": "삶은 고기·버섯 절임·양파를 마요네즈로 버무린 든든한 샐러드.", "ru": "Сытный салат из отварного мяса, маринованных грибов и лука с майонезом." } },
+
+    { "id": "japanese-salad", "cat": "salads", "price": 8000, "image": "images/japanese-salad.webp",
+      "name": { "uz": "Yapon salati", "en": "Japanese salad", "ko": "일본 샐러드 (소고기)", "ru": "Японский салат" },
+      "desc": { "uz": "Mol go'shti, pomidor va bodring, kunjut va soya sousli zapravka bilan.", "en": "Beef, tomato and cucumber with sesame and soy dressing.", "ko": "소고기·토마토·오이에 참깨 간장 드레싱.", "ru": "Говядина, помидоры и огурцы с кунжутом и соевой заправкой." } },
+
+    { "id": "carrot-salad", "cat": "salads", "price": 5000, "image": "images/carrot-salad.webp",
+      "name": { "uz": "Sabzi salati (koreyscha)", "en": "Carrot salad", "ko": "당근 샐러드", "ru": "Морковча" },
+      "desc": { "uz": "Ziravorli, sirkali achchiqroq maydalangan sabzi.", "en": "Shredded carrot marinated with spices, garlic and vinegar.", "ko": "향신료·마늘·식초로 무친 채 썬 당근.", "ru": "Тёртая морковь, маринованная со специями, чесноком и уксусом." } },
+
+    { "id": "fresh-salad", "cat": "salads", "price": 6000, "image": "images/fresh-salad.webp",
+      "name": { "uz": "Achchiq-chuchuk", "en": "Fresh salad", "ko": "신선한 샐러드", "ru": "Свежий салат (Ачичук)" },
+      "desc": { "uz": "Pomidor, bodring va piyozdan yangi o'zbekcha salat.", "en": "Fresh Uzbek salad of tomato, cucumber and onion.", "ko": "토마토·오이·양파로 만든 우즈벡식 신선한 샐러드.", "ru": "Свежий узбекский салат из помидоров, огурцов и лука." } },
+
+    { "id": "fresh-salad-2", "cat": "salads", "price": 6000, "image": "images/fresh-salad-2.webp",
+      "name": { "uz": "Yangi salat 2", "en": "Fresh salad 2", "ko": "신선한 샐러드 2", "ru": "Свежий салат 2" },
+      "desc": { "uz": "Mayda to'g'ralgan pomidor, bodring, piyoz va ko'katlar.", "en": "Diced tomato, cucumber, onion and fresh herbs.", "ko": "잘게 썬 토마토·오이·양파·허브.", "ru": "Мелко нарезанные помидоры, огурцы, лук и зелень." } },
+
+    { "id": "salted-cucumber", "cat": "salads", "price": 5000, "image": "images/salted-cucumber.webp",
+      "name": { "uz": "Tuzlangan bodring", "en": "Pickled cucumber", "ko": "소금에 절인 오이", "ru": "Солёные огурцы" },
+      "desc": { "uz": "Uy usulida tuzlangan qarsildoq bodring.", "en": "Crunchy home-style pickled cucumbers.", "ko": "집에서 절인 아삭한 오이 피클.", "ru": "Хрустящие огурцы домашнего засола." } },
+
+    { "id": "lemon-tea", "cat": "drinks", "price": 4000, "image": "images/lemon-tea.webp",
+      "name": { "uz": "Limonli choy", "en": "Lemon tea", "ko": "레몬차", "ru": "Чай с лимоном" },
+      "desc": { "uz": "Limon va yalpiz bilan issiq qora choy.", "en": "Hot black tea with lemon and mint.", "ko": "레몬과 민트를 곁들인 따뜻한 홍차.", "ru": "Горячий чёрный чай с лимоном и мятой." } },
+
+    { "id": "milk-tea", "cat": "drinks", "price": 5000, "image": "images/milk-tea.webp",
+      "name": { "uz": "Sutli choy", "en": "Milk tea", "ko": "밀크티", "ru": "Чай с молоком" },
+      "desc": { "uz": "Sut va ziravorlar bilan damlangan issiq choy.", "en": "Hot tea brewed with milk and warm spices.", "ko": "우유와 향신료를 넣어 우린 따뜻한 차.", "ru": "Горячий чай с молоком и пряностями." } },
+
+    { "id": "juice", "cat": "drinks", "price": 5000, "image": "images/juice.webp",
+      "name": { "uz": "Sharbat", "en": "Juice", "ko": "주스", "ru": "Сок" },
+      "desc": { "uz": "Mevali sharbat (turini so'rang).", "en": "Fruit juice (ask for available flavours).", "ko": "과일 주스 (맛은 문의해 주세요).", "ru": "Фруктовый сок (вкусы уточняйте)." } },
+
+    { "id": "cola", "cat": "drinks", "price": 3000, "image": "images/cola.webp",
+      "name": { "uz": "Kola 1,5 L", "en": "Cola 1.5 L", "ko": "콜라 1.5L", "ru": "Кола 1,5 л" },
+      "desc": { "uz": "Gazli ichimlik, 1,5 litrli shisha.", "en": "Soft drink, 1.5 litre bottle.", "ko": "탄산음료 1.5리터.", "ru": "Газированный напиток, бутылка 1,5 л." } },
+
+    { "id": "yogurt", "cat": "extras", "price": 2000, "image": "images/yogurt.webp",
+      "name": { "uz": "Qatiq (yogurt)", "en": "Yogurt", "ko": "요거트", "ru": "Катык (йогурт)" },
+      "desc": { "uz": "Uy qatig'i — osh va kabobga ajoyib qo'shimcha.", "en": "Homemade yogurt — perfect with plov and kebabs.", "ko": "수제 요거트 — 필라프·케밥과 잘 어울림.", "ru": "Домашний катык — отлично к плову и шашлыку." } },
+
+    { "id": "french-fries", "cat": "extras", "price": 5000, "image": "images/french-fries.webp",
+      "name": { "uz": "Kartoshka fri", "en": "French fries", "ko": "감자튀김", "ru": "Картофель фри" },
+      "desc": { "uz": "Qarsildoq qovurilgan kartoshka, ketchup bilan.", "en": "Crispy golden fries with ketchup.", "ko": "바삭한 감자튀김, 케첩 곁들임.", "ru": "Хрустящий картофель фри с кетчупом." } },
+
+    { "id": "big-bread", "cat": "extras", "price": 4000, "image": "images/big-bread.webp",
+      "name": { "uz": "Non (katta)", "en": "Big bread", "ko": "큰 빵", "ru": "Лепёшка (большая)" },
+      "desc": { "uz": "Tandirda yopilgan katta o'zbek noni, sedana bilan.", "en": "Large Uzbek bread baked in the tandoor, with nigella seeds.", "ko": "탄두르에서 구운 큰 우즈벡 빵.", "ru": "Большая узбекская лепёшка из тандыра с чернушкой." } },
+
+    { "id": "small-bread", "cat": "extras", "price": 2000, "image": "images/small-bread.webp",
+      "name": { "uz": "Non (kichik)", "en": "Small bread", "ko": "작은 빵", "ru": "Лепёшка (маленькая)" },
+      "desc": { "uz": "Tandirda yopilgan kichik yumshoq non.", "en": "Small soft tandoor bread.", "ko": "탄두르에서 구운 작고 부드러운 빵.", "ru": "Маленькая мягкая лепёшка из тандыра." } }
+  ]
+}

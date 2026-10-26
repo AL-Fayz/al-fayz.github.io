@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="uz">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>AL-FAYZ — Milliy taomlar</title>
+  <meta name="description" content="AL-FAYZ halal o'zbek restorani — elektron menyu. 할랄 우즈벡 레스토랑 메뉴. Siheung, Jeongwang-dong.">
+  <meta name="theme-color" content="#FBF6EC">
+  <meta property="og:title" content="AL-FAYZ — Halal Uzbek restaurant menu">
+  <meta property="og:description" content="Osh, lag'mon, manti, kabob... 010-8126-0990">
+  <meta property="og:image" content="images/plov.webp">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%23C8962E'/%3E%3Ccircle cx='32' cy='32' r='18' fill='none' stroke='%23FBF6EC' stroke-width='4'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- reusable SVG symbols: logo + naqsh ornaments -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#E9C46A"/><stop offset=".5" stop-color="#C8962E"/><stop offset="1" stop-color="#9C6F1C"/>
+      </linearGradient>
+    </defs>
+    <symbol id="logo" viewBox="0 0 120 64">
+      <g fill="url(#gold)">
+        <path d="M7 6h2.4v14h2.2V6H14v14h2.2V6h2.4v14h2.2V6h2.4v16c0 4.5-3.2 7.6-6.8 8.2V58a2.6 2.6 0 0 1-5.2 0V30.2C9.6 29.6 7 26.5 7 22z"/>
+        <circle cx="60" cy="32" r="27"/>
+        <path d="M104 6c6 4 9 13 9 24 0 3-2 5-5 5h-1v23a3 3 0 0 1-6 0V8c0-1.5 1.5-2.5 3-2z"/>
+      </g>
+      <circle cx="60" cy="32" r="21" fill="#FBF6EC"/>
+      <circle cx="60" cy="32" r="17" fill="url(#gold)"/>
+      <text x="60" y="32" text-anchor="middle" font-size="12" font-weight="700" fill="#FBF6EC" font-family="serif">حلال</text>
+      <text x="60" y="43" text-anchor="middle" font-size="7" font-weight="800" fill="#FBF6EC" font-family="Manrope, sans-serif">Halal</text>
+    </symbol>
+    <symbol id="star" viewBox="0 0 40 40">
+      <path d="M20 1l4.6 8.9 9.5-3.4-3.4 9.5L39.6 20l-8.9 4.6 3.4 9.5-9.5-3.4L20 39.6l-4.6-8.9-9.5 3.4 3.4-9.5L.4 20l8.9-4.6-3.4-9.5 9.5 3.4z"/>
+    </symbol>
+    <symbol id="corner" viewBox="0 0 40 40">
+      <path d="M2 2h20c-2 6-8 8-12 6 2 4 0 10-6 12V2z" fill="currentColor"/>
+      <path d="M2 26c8 0 16-6 18-16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      <circle cx="24" cy="6" r="2" fill="currentColor"/><circle cx="6" cy="24" r="2" fill="currentColor"/>
+    </symbol>
+  </svg>
+
+  <!-- language picker (first visit + any time) -->
+  <div id="lang-screen" class="lang-screen" hidden>
+    <div class="lang-card">
+      <svg class="lang-logo"><use href="#logo"/></svg>
+      <h1 class="brand">AL-FAYZ</h1>
+      <p class="brand-sub">Milliy taomlar · 할랄 우즈벡 레스토랑</p>
+      <div class="ornament-line"></div>
+      <p class="lang-q">Tilni tanlang · Choose language<br>언어 선택 · Выберите язык</p>
+      <div class="lang-grid">
+        <button data-lang="uz"><span class="flag">🇺🇿</span>O'zbekcha</button>
+        <button data-lang="en"><span class="flag">🇬🇧</span>English</button>
+        <button data-lang="ko"><span class="flag">🇰🇷</span>한국어</button>
+        <button data-lang="ru"><span class="flag">🇷🇺</span>Русский</button>
+      </div>
+    </div>
+  </div>
+
+  <header class="hero">
+    <div class="hero-pattern"></div>
+    <div class="hero-top">
+      <span class="halal-pill">✓ HALAL</span>
+      <button id="lang-btn" class="lang-btn" aria-label="Language"><span>🌐</span><b id="lang-code">UZ</b></button>
+    </div>
+    <svg class="hero-logo"><use href="#logo"/></svg>
+    <h1 class="brand">AL-FAYZ</h1>
+    <p class="brand-sub" data-i18n="tagline">Milliy taomlar</p>
+    <a class="hero-call" href="tel:01081260990">📞 010-8126-0990</a>
+  </header>
+
+  <nav class="tabs" id="tabs" aria-label="Categories"><div class="tabs-inner" id="tabs-inner"></div></nav>
+
+  <main id="menu"></main>
+
+  <footer class="footer">
+    <div class="ornament-line"></div>
+    <svg class="footer-logo"><use href="#logo"/></svg>
+    <h2 class="brand small">AL-FAYZ</h2>
+    <p id="f-address" class="f-address"></p>
+    <a class="f-phone" href="tel:01081260990">📞 010-8126-0990</a>
+    <div class="map-btns">
+      <a id="naver" class="map-btn naver" target="_blank" rel="noopener"><b>N</b> <span data-i18n="naver">Naver xarita</span></a>
+      <a id="kakao" class="map-btn kakao" target="_blank" rel="noopener"><b>K</b> <span data-i18n="kakao">Kakao xarita</span></a>
+    </div>
+    <p class="f-note" data-i18n="footnote">Narxlar o'zgarishi mumkin.</p>
+  </footer>
+
+  <!-- floating cart bar -->
+  <button id="cart-bar" class="cart-bar" hidden>
+    <span class="cb-icon">🛒<i id="cb-count">0</i></span>
+    <span class="cb-label" data-i18n="cart">Savatcha</span>
+    <span class="cb-total" id="cb-total">0원</span>
+  </button>
+
+  <!-- cart sheet -->
+  <div id="sheet-backdrop" class="sheet-backdrop" hidden></div>
+  <section id="sheet" class="sheet" aria-hidden="true">
+    <div class="sheet-handle"></div>
+    <div class="sheet-head">
+      <h2 data-i18n="yourOrder">Buyurtmangiz</h2>
+      <button id="sheet-close" class="icon-btn" aria-label="Close">✕</button>
+    </div>
+    <ul id="sheet-list" class="sheet-list"></ul>
+    <div class="sheet-total"><span data-i18n="total">Jami</span><b id="sheet-total">0원</b></div>
+    <p class="sheet-hint" data-i18n="hint">Buyurtma berish uchun qo'ng'iroq qiling yoki SMS yuboring.</p>
+    <div class="order-btns">
+      <a class="order-btn call" href="tel:01081260990">📞 <span data-i18n="call">Qo'ng'iroq qilish</span></a>
+      <a class="order-btn sms" id="sms-btn" href="#">💬 <span data-i18n="sms">SMS orqali buyurtma</span></a>
+    </div>
+    <button id="clear-cart" class="clear-btn" data-i18n="clear">Savatchani tozalash</button>
+  </section>
+
+  <div id="toast" class="toast"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
