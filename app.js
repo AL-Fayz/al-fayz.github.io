@@ -11,19 +11,19 @@
     uz: { tagline: "Milliy taomlar · Halal", cart: "Savatcha", yourOrder: "Buyurtmangiz", total: "Jami", call: "Qo'ng'iroq qilish", sms: "SMS orqali buyurtma",
           hint: "Buyurtma berish uchun qo'ng'iroq qiling yoki SMS yuboring.", clear: "Savatchani tozalash", empty: "Savatcha bo'sh", soon: "Tez orada",
           soonText: "Bu bo'lim tez orada to'ldiriladi.", min: "daqiqada tayyor", hours: "soatda tayyor", added: "savatchaga qo'shildi", naver: "Naver xarita", kakao: "Kakao xarita",
-          footnote: "Narxlar o'zgarishi mumkin. Barcha taomlar halol.", smsHead: "Assalomu alaykum! AL-FAYZ buyurtma:", smsTotal: "JAMI", more: "batafsil", pcs: "ta", pick: "Tavsiya", photos: "Rasmlar" },
+          footnote: "Narxlar o'zgarishi mumkin. Barcha taomlar halol.", smsHead: "Assalomu alaykum! AL-FAYZ buyurtma:", smsTotal: "JAMI", more: "batafsil", pcs: "ta", pick: "Tavsiya", photos: "Rasmlar", videos: "Videolar", videosSoon: "Oshxonamiz haqidagi videolar tez orada shu yerda bo'ladi." },
     en: { tagline: "Uzbek cuisine · Halal", cart: "Cart", yourOrder: "Your order", total: "Total", call: "Call to order", sms: "Order by SMS",
           hint: "Call us or send an SMS to place your order.", clear: "Clear cart", empty: "Your cart is empty", soon: "Coming soon",
           soonText: "This section will be filled soon.", min: "min to prepare", hours: "hours to prepare", added: "added to cart", naver: "Naver Map", kakao: "Kakao Map",
-          footnote: "Prices may change. All dishes are halal.", smsHead: "Hello! AL-FAYZ order:", smsTotal: "TOTAL", more: "more", pcs: "pcs", pick: "Chef's pick", photos: "Photos" },
+          footnote: "Prices may change. All dishes are halal.", smsHead: "Hello! AL-FAYZ order:", smsTotal: "TOTAL", more: "more", pcs: "pcs", pick: "Chef's pick", photos: "Photos", videos: "Videos", videosSoon: "Videos about our restaurant are coming soon." },
     ko: { tagline: "우즈벡 전통 요리 · 할랄", cart: "장바구니", yourOrder: "주문 내역", total: "합계", call: "전화 주문", sms: "문자로 주문",
           hint: "전화 또는 문자로 주문해 주세요.", clear: "장바구니 비우기", empty: "장바구니가 비어 있습니다", soon: "곧 준비됩니다",
           soonText: "이 메뉴는 곧 추가됩니다.", min: "분 소요", hours: "시간 소요", added: "장바구니에 담았습니다", naver: "네이버 지도", kakao: "카카오맵",
-          footnote: "가격은 변동될 수 있습니다. 모든 요리는 할랄입니다.", smsHead: "안녕하세요! AL-FAYZ 주문:", smsTotal: "합계", more: "더보기", pcs: "개", pick: "추천", photos: "사진" },
+          footnote: "가격은 변동될 수 있습니다. 모든 요리는 할랄입니다.", smsHead: "안녕하세요! AL-FAYZ 주문:", smsTotal: "합계", more: "더보기", pcs: "개", pick: "추천", photos: "사진", videos: "영상", videosSoon: "레스토랑 영상이 곧 올라옵니다." },
     ru: { tagline: "Узбекская кухня · Халяль", cart: "Корзина", yourOrder: "Ваш заказ", total: "Итого", call: "Позвонить", sms: "Заказать по SMS",
           hint: "Позвоните или отправьте SMS, чтобы сделать заказ.", clear: "Очистить корзину", empty: "Корзина пуста", soon: "Скоро",
           soonText: "Этот раздел скоро будет заполнен.", min: "мин на приготовление", hours: "ч на приготовление", added: "добавлено в корзину", naver: "Naver Карта", kakao: "Kakao Карта",
-          footnote: "Цены могут меняться. Все блюда халяль.", smsHead: "Здравствуйте! Заказ AL-FAYZ:", smsTotal: "ИТОГО", more: "ещё", pcs: "шт", pick: "Рекомендуем", photos: "Фото" }
+          footnote: "Цены могут меняться. Все блюда халяль.", smsHead: "Здравствуйте! Заказ AL-FAYZ:", smsTotal: "ИТОГО", more: "ещё", pcs: "шт", pick: "Рекомендуем", photos: "Фото", videos: "Видео", videosSoon: "Скоро здесь появятся видео о нашем ресторане." }
   };
 
   const $ = (s, el = document) => el.querySelector(s);
@@ -35,13 +35,15 @@
   };
 
   let data = null;
+  let off = new Set();   // dishes the chef switched off for now (status.json, edited on oshpaz.html)
+  let videos = [];       // videos.json, edited on oshpaz.html
   // ?lang=ko in the link opens the menu straight in that language
   let lang = new URLSearchParams(location.search).get("lang") || store.get(LANG_KEY);
   let cart = {};
   try { cart = JSON.parse(store.get(CART_KEY) || "{}") || {}; } catch (e) { cart = {}; }
 
   const itemById = (id) => data.items.find((i) => i.id === id);
-  const tx = (obj) => (obj && (obj[lang] || obj.en || obj.uz)) || "";
+  const tx = (obj) => (typeof obj === "string" ? obj : obj && (obj[lang] || obj.en || obj.uz)) || "";
   const t = (k) => T[lang][k];
 
   /* ---------- language ---------- */
@@ -104,6 +106,44 @@
     return `<div class="soon"><svg viewBox="0 0 40 40"><use href="#star"/></svg><h3>${t("soon")}</h3><p>${esc(tx(cat.note) || t("soonText"))}</p></div>`;
   }
 
+  /* ---------- videos ---------- */
+  // YouTube (video, Shorts) and Instagram (reel, post) links -> what we need to show them
+  function parseVideo(url) {
+    let m = String(url).match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?(?:.*&)?v=|shorts\/|embed\/|live\/))([\w-]{11})/);
+    if (m) {
+      const vertical = /\/shorts\//.test(url);
+      return { vertical, thumb: `https://i.ytimg.com/vi/${m[1]}/hqdefault.jpg`,
+        embed: `https://www.youtube-nocookie.com/embed/${m[1]}?autoplay=1&playsinline=1&rel=0` };
+    }
+    m = String(url).match(/instagram\.com\/(?:[\w.]+\/)?(reel|reels|p|tv)\/([\w-]+)/);
+    if (m) return { vertical: true, thumb: null, ig: true,
+      embed: `https://www.instagram.com/${m[1] === "p" ? "p" : "reel"}/${m[2]}/embed/` };
+    return null;
+  }
+
+  function videosHTML() {
+    const list = videos.map((v, i) => ({ v, i, p: parseVideo(v.url) })).filter((x) => x.p);
+    const body = !list.length ? `<div class="soon"><svg viewBox="0 0 40 40"><use href="#star"/></svg><h3>${t("soon")}</h3><p>${esc(t("videosSoon"))}</p></div>`
+      : `<div class="grid video-grid">${list.map(({ v, i, p }) => `<button class="video${p.vertical ? " vertical" : ""}" data-video="${i}">
+          ${p.thumb ? `<img src="${esc(p.thumb)}" alt="" loading="lazy" decoding="async">` : `<span class="ig-ph">Instagram</span>`}
+          <span class="play" aria-hidden="true"></span>
+          ${tx(v.title) ? `<span class="v-cap">${esc(tx(v.title))}</span>` : ""}
+        </button>`).join("")}</div>`;
+    return `<section class="section" id="cat-videos">
+      <div class="section-head"><span class="icon">🎬</span><h2>${esc(t("videos"))}</h2><div class="ornament-line"></div></div>${body}</section>`;
+  }
+
+  function openVideo(i) {
+    const v = videos[i], p = v && parseVideo(v.url);
+    if (!p) return;
+    const el = $("#viewer");
+    el.innerHTML = `<button class="v-close" aria-label="Close">✕</button>
+      <div class="v-frame${p.vertical ? " vertical" : ""}"><iframe src="${esc(p.embed)}" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe></div>
+      ${tx(v.title) ? `<div class="v-title">${esc(tx(v.title))}</div>` : ""}`;
+    el.hidden = false; document.body.classList.add("lock");
+    requestAnimationFrame(() => el.classList.add("open"));
+  }
+
   function render() {
     document.querySelectorAll("[data-i18n]").forEach((el) => { el.textContent = t(el.dataset.i18n); });
     $("#lang-code").textContent = lang.toUpperCase();
@@ -113,10 +153,11 @@
       .map((c) => `<a href="${esc(c.url)}" target="_blank" rel="noopener">${esc(c.for)} — ${esc(c.text)}</a>`).join(" · ") : "";
 
     $("#tabs-inner").innerHTML = data.categories
-      .map((c) => `<a class="tab" href="#cat-${c.id}" data-cat="${c.id}"><span>${c.icon}</span>${esc(tx(c.name))}</a>`).join("");
+      .map((c) => `<a class="tab" href="#cat-${c.id}" data-cat="${c.id}"><span>${c.icon}</span>${esc(tx(c.name))}</a>`).join("")
+      + `<a class="tab" href="#cat-videos" data-cat="videos"><span>🎬</span>${esc(t("videos"))}</a>`;
 
     $("#menu").innerHTML = data.categories.map((c) => {
-      const items = data.items.filter((i) => i.cat === c.id && !i.hidden);
+      const items = data.items.filter((i) => i.cat === c.id && !i.hidden && !off.has(i.id));
       let body;
       if (!items.length) body = soonHTML(c);
       else if (items.some((i) => i.group)) {
@@ -127,7 +168,7 @@
       const note = items.length && c.note ? `<p class="section-note">${esc(tx(c.note))}</p>` : "";
       return `<section class="section" id="cat-${c.id}">
         <div class="section-head"><span class="icon">${c.icon}</span><h2>${esc(tx(c.name))}</h2><div class="ornament-line"></div></div>${note}${body}</section>`;
-    }).join("");
+    }).join("") + videosHTML();
 
     observeSections();
     updateCart();
@@ -178,7 +219,7 @@
   }
 
   function cartLines() {
-    return Object.keys(cart).map((id) => ({ item: itemById(id), qty: cart[id] })).filter((l) => l.item);
+    return Object.keys(cart).map((id) => ({ item: itemById(id), qty: cart[id] })).filter((l) => l.item && !l.item.hidden && !off.has(l.item.id));
   }
 
   function updateCart() {
@@ -229,6 +270,8 @@
     if (btn) { change(btn.dataset.id, btn.dataset.act === "inc" ? 1 : -1); return; }
     const langBtn = e.target.closest("[data-lang]");
     if (langBtn) { setLang(langBtn.dataset.lang); return; }
+    const vid = e.target.closest("[data-video]");
+    if (vid) { openVideo(+vid.dataset.video); return; }
     const thumb = e.target.closest(".thumb");
     if (thumb && thumb.querySelector("img")) {
       const pics = photos(itemById(thumb.closest(".card").dataset.id));
@@ -278,10 +321,13 @@
   $("#sheet").addEventListener("touchend", (e) => { if (startY !== null && e.changedTouches[0].clientY - startY > 80) closeSheet(); startY = null; }, { passive: true });
 
   /* ---------- boot ---------- */
-  fetch("menu.json", { cache: "no-cache" })
-    .then((r) => r.json())
-    .then((json) => {
+  // status.json / videos.json change often (from oshpaz.html), so skip the CDN copy with a fresh query string
+  const fresh = (f) => fetch(`${f}?t=${Date.now()}`, { cache: "no-store" }).then((r) => (r.ok ? r.json() : {})).catch(() => ({}));
+  Promise.all([fetch("menu.json", { cache: "no-cache" }).then((r) => r.json()), fresh("status.json"), fresh("videos.json")])
+    .then(([json, status, vids]) => {
       data = json;
+      off = new Set(Array.isArray(status.off) ? status.off : []);
+      videos = Array.isArray(vids.videos) ? vids.videos : [];
       const q = encodeURIComponent(data.restaurant.mapQuery);
       $("#naver").href = `https://map.naver.com/p/search/${q}`;
       $("#kakao").href = `https://map.kakao.com/link/search/${q}`;

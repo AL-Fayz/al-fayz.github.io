@@ -17,3 +17,14 @@ Rasm 4:3 nisbatda (masalan 800×600) bo'lsa eng chiroyli ko'rinadi. `.jpg` ishla
 Taomni vaqtincha yashirish uchun unga `"hidden": true` qo'shing.
 
 Link oxiriga `?lang=ko` (yoki `uz`, `en`, `ru`) qo'shsangiz, menyu o'sha tilda ochiladi.
+
+## Oshpaz paneli — taomni vaqtincha o'chirish, video qo'shish
+Manzili: **https://al-fayz.github.io/oshpaz.html** (menyuda havolasi yo'q, qidiruv tizimlari ko'rsatmaydi).
+
+- Birinchi kirishda GitHub kaliti (fine-grained token: owner **AL-Fayz**, faqat **al-fayz.github.io**,
+  *Contents: Read and write*) va PIN-kod kiritiladi. Kalit telefonning o'zida, PIN bilan shifrlangan holda saqlanadi.
+- **Taomlar**: taomni bosish uni BOR ↔ YO'Q qiladi. O'chirilgan taomlar `status.json` faylida turadi va mijozlarga ko'rinmaydi.
+- **Videolar**: YouTube (oddiy video, Shorts) yoki Instagram (Reels) havolasi qo'shiladi va `videos.json` fayliga yoziladi.
+- Har bir saqlash GitHub'da alohida commit bo'ladi va saytda 1–2 daqiqada ko'rinadi.
+- PIN esdan chiqsa: "qaytadan sozlash" tugmasini bosing va kalitni qayta kiriting.
+- Telefon yo'qolsa: GitHub → Settings → Developer settings → Personal access tokens sahifasida kalitni o'chiring.

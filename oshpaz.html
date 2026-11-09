@@ -1,0 +1,378 @@
+<!doctype html>
+<html lang="uz">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="robots" content="noindex, nofollow">
+  <title>AL-FAYZ — Oshpaz paneli</title>
+  <meta name="theme-color" content="#151515">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%23E0B25A'/%3E%3Ccircle cx='32' cy='32' r='18' fill='none' stroke='%23151515' stroke-width='4'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body { padding-bottom: 90px; }
+    .wrap { max-width: 640px; margin: 0 auto; padding: 0 16px; }
+    .top { position: sticky; top: 0; z-index: 10; background: rgba(21, 21, 21, .96); border-bottom: 1px solid var(--line); }
+    .top .wrap { display: flex; align-items: center; gap: 10px; padding-top: 12px; padding-bottom: 12px; }
+    .top h1 { flex: 1; margin: 0; font-size: 18px; font-weight: 800; color: var(--gold-2); }
+    .btn { border: 1px solid var(--line); background: rgba(255, 255, 255, .06); color: var(--ink); border-radius: 12px; padding: 10px 14px; font: inherit; font-weight: 700; font-size: 14px; cursor: pointer; }
+    .btn.gold { background: var(--gold-grad); color: #2A1C0E; border-color: transparent; }
+    .btn.danger { color: #ff9b8a; }
+    .btn:disabled { opacity: .5; }
+    .panel { margin: 24px auto; padding: 22px 18px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--card); }
+    .panel h2 { margin: 0 0 6px; font-size: 22px; color: var(--gold-2); }
+    .panel p, .panel li { color: var(--ink-2); font-size: 14px; line-height: 1.55; }
+    .panel ol { padding-left: 20px; margin: 8px 0 14px; }
+    .panel a { color: var(--gold-2); }
+    label { display: block; font-size: 13px; font-weight: 700; color: var(--ink-2); margin: 14px 0 6px; }
+    input { width: 100%; padding: 12px 14px; border-radius: 12px; border: 1px solid var(--line); background: #111; color: var(--ink); font: inherit; font-size: 16px; }
+    input:focus { outline: 2px solid var(--gold); border-color: transparent; }
+    .pin { letter-spacing: .5em; text-align: center; font-size: 26px; font-weight: 800; }
+    .err { color: #ff9b8a; font-size: 14px; min-height: 20px; margin: 10px 0 0; }
+    .row-btns { display: flex; gap: 10px; margin-top: 18px; }
+    .row-btns .btn { flex: 1; padding: 14px; }
+    .seg { display: flex; gap: 8px; padding: 12px 0; }
+    .seg button { flex: 1; }
+    .seg button.on { background: var(--gold-grad); color: #2A1C0E; border-color: transparent; }
+    .summary { font-size: 14px; color: var(--ink-2); margin: 4px 0 8px; }
+    .summary b { color: var(--gold-2); }
+    .search { margin: 4px 0 10px; }
+    .cat { margin: 22px 0 8px; font-size: 15px; font-weight: 800; color: var(--gold); text-transform: uppercase; letter-spacing: .06em; }
+    .dish { display: flex; align-items: center; gap: 12px; padding: 10px; border-radius: 14px; background: var(--card); border: 1px solid var(--line); margin-bottom: 8px; cursor: pointer; user-select: none; }
+    .dish img, .dish .noimg { width: 56px; height: 42px; border-radius: 8px; object-fit: cover; flex: none; background: #333; display: grid; place-items: center; }
+    .dish .nm { flex: 1; min-width: 0; }
+    .dish .nm b { display: block; font-size: 15px; color: var(--ink); }
+    .dish .nm span { font-size: 12.5px; color: var(--ink-2); }
+    .dish.off { background: #1a1212; border-color: rgba(255, 120, 100, .35); }
+    .dish.off img { filter: grayscale(1); opacity: .5; }
+    .dish.off .nm b { color: #b9a9a0; text-decoration: line-through; }
+    .sw { flex: none; width: 54px; height: 32px; border-radius: 99px; background: #4b4b4b; position: relative; transition: background .2s; }
+    .sw::after { content: ""; position: absolute; top: 3px; left: 3px; width: 26px; height: 26px; border-radius: 50%; background: #fff; transition: transform .2s; }
+    .dish:not(.off) .sw { background: #3fae5a; }
+    .dish:not(.off) .sw::after { transform: translateX(22px); }
+    .state { font-size: 11px; font-weight: 800; width: 52px; text-align: center; flex: none; }
+    .dish:not(.off) .state { color: #6fd38a; }
+    .dish.off .state { color: #ff9b8a; }
+    .vid { display: flex; align-items: center; gap: 12px; padding: 10px; border-radius: 14px; background: var(--card); border: 1px solid var(--line); margin-bottom: 8px; }
+    .vid img, .vid .noimg { width: 72px; height: 54px; border-radius: 8px; object-fit: cover; flex: none; background: linear-gradient(160deg, #833AB4, #E1306C 55%, #F77737); display: grid; place-items: center; font-size: 11px; font-weight: 800; color: #fff; }
+    .vid .nm { flex: 1; min-width: 0; font-size: 14px; }
+    .vid .nm b { display: block; color: var(--ink); }
+    .vid .nm span { display: block; color: var(--ink-2); font-size: 12px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .vid .btn { padding: 8px 10px; }
+    .status { position: fixed; left: 50%; bottom: calc(16px + var(--safe-b)); transform: translateX(-50%); z-index: 30; max-width: calc(100% - 32px);
+      padding: 12px 18px; border-radius: 99px; font-weight: 700; font-size: 14px; background: #2a2a2a; border: 1px solid var(--line); color: var(--ink); box-shadow: var(--shadow); text-align: center; }
+    .status.ok { border-color: #3fae5a; }
+    .status.bad { border-color: #ff7b66; color: #ffb3a6; }
+    .status[hidden] { display: none; }
+    [hidden] { display: none !important; }
+  </style>
+</head>
+<body>
+  <header class="top"><div class="wrap">
+    <h1>👨‍🍳 Oshpaz paneli</h1>
+    <a class="btn" href="./" target="_blank">Menyu ↗</a>
+    <button class="btn" id="lock" hidden>🔒</button>
+  </div></header>
+
+  <main class="wrap">
+    <!-- 1) first time on this phone: GitHub key + PIN -->
+    <section class="panel" id="setup" hidden>
+      <h2>Birinchi sozlash</h2>
+      <p>Bu sozlash shu telefonda bir marta qilinadi. Kerakli narsa — saytga yozish huquqi bor GitHub kaliti (token):</p>
+      <ol>
+        <li><a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener">GitHub → Fine-grained token</a> sahifasini oching.</li>
+        <li><b>Resource owner</b>: <b>AL-Fayz</b>. <b>Expiration</b>: 1 yil (yoki "No expiration").</li>
+        <li><b>Repository access</b> → <b>Only select repositories</b> → <b>al-fayz.github.io</b>.</li>
+        <li><b>Permissions → Repository → Contents</b>: <b>Read and write</b>.</li>
+        <li><b>Generate token</b> → kalitni nusxalab, pastga qo'ying.</li>
+      </ol>
+      <label for="token">GitHub kaliti</label>
+      <input id="token" type="password" autocomplete="off" placeholder="github_pat_…">
+      <label for="pin1">Yangi PIN-kod (kamida 4 raqam)</label>
+      <input id="pin1" class="pin" type="password" inputmode="numeric" autocomplete="new-password" maxlength="8">
+      <label for="pin2">PIN-kodni takrorlang</label>
+      <input id="pin2" class="pin" type="password" inputmode="numeric" autocomplete="new-password" maxlength="8">
+      <p class="err" id="setup-err"></p>
+      <div class="row-btns"><button class="btn gold" id="setup-save">Saqlash</button></div>
+    </section>
+
+    <!-- 2) every visit: PIN -->
+    <section class="panel" id="login" hidden>
+      <h2>PIN-kodni kiriting</h2>
+      <input id="pin" class="pin" type="password" inputmode="numeric" autocomplete="current-password" maxlength="8" autofocus>
+      <p class="err" id="login-err"></p>
+      <div class="row-btns"><button class="btn gold" id="login-go">Kirish</button></div>
+      <div class="row-btns"><button class="btn danger" id="reset">PIN esdan chiqdi — qaytadan sozlash</button></div>
+    </section>
+
+    <!-- 3) the panel -->
+    <section id="app" hidden>
+      <div class="seg"><button class="btn on" data-tab="dishes">🍽️ Taomlar</button><button class="btn" data-tab="videos">🎬 Videolar</button></div>
+
+      <div id="tab-dishes">
+        <p class="summary" id="summary"></p>
+        <p class="summary">Taomni bosing: <b style="color:#6fd38a">BOR</b> ↔ <b style="color:#ff9b8a">YO'Q</b>. "Yo'q" taomlar mijozlarga ko'rinmaydi. O'zgarish saytda 1–2 daqiqada chiqadi.</p>
+        <input class="search" id="search" type="search" placeholder="🔍 Qidirish…">
+        <div id="dishes"></div>
+      </div>
+
+      <div id="tab-videos" hidden>
+        <div class="panel" style="margin-top:8px">
+          <h2>Video qo'shish</h2>
+          <p>YouTube (oddiy video yoki Shorts) yoki Instagram (Reels) havolasini qo'ying.</p>
+          <label for="v-url">Havola</label>
+          <input id="v-url" type="url" placeholder="https://youtube.com/shorts/… yoki https://instagram.com/reel/…">
+          <label for="v-title">Sarlavha (ixtiyoriy)</label>
+          <input id="v-title" type="text" placeholder="Masalan: Qozonda osh tayyorlash">
+          <p class="err" id="v-err"></p>
+          <div class="row-btns"><button class="btn gold" id="v-add">Qo'shish</button></div>
+        </div>
+        <div id="videos"></div>
+      </div>
+    </section>
+  </main>
+
+  <div class="status" id="status" hidden></div>
+
+  <script>
+  (function () {
+    "use strict";
+    const REPO = "AL-Fayz/al-fayz.github.io", BRANCH = "main";
+    const KEY = "alfayz_chef_key";   // GitHub token, encrypted with the PIN (AES-GCM, key from PBKDF2)
+    const $ = (s) => document.querySelector(s);
+    const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+    const store = {
+      get() { try { return JSON.parse(localStorage.getItem(KEY)); } catch (e) { return null; } },
+      set(v) { try { localStorage.setItem(KEY, JSON.stringify(v)); return true; } catch (e) { return false; } },
+      del() { try { localStorage.removeItem(KEY); } catch (e) { /* ignore */ } }
+    };
+
+    /* ---------- PIN-encrypted token ---------- */
+    const enc = new TextEncoder(), dec = new TextDecoder();
+    const b64 = (buf) => btoa(String.fromCharCode(...new Uint8Array(buf)));
+    const unb64 = (s) => Uint8Array.from(atob(s), (c) => c.charCodeAt(0));
+    async function keyFrom(pin, salt) {
+      const base = await crypto.subtle.importKey("raw", enc.encode(pin), "PBKDF2", false, ["deriveKey"]);
+      return crypto.subtle.deriveKey({ name: "PBKDF2", salt, iterations: 250000, hash: "SHA-256" }, base, { name: "AES-GCM", length: 256 }, false, ["encrypt", "decrypt"]);
+    }
+    async function seal(token, pin) {
+      const salt = crypto.getRandomValues(new Uint8Array(16)), iv = crypto.getRandomValues(new Uint8Array(12));
+      const ct = await crypto.subtle.encrypt({ name: "AES-GCM", iv }, await keyFrom(pin, salt), enc.encode(token));
+      return { salt: b64(salt), iv: b64(iv), ct: b64(ct) };
+    }
+    async function unseal(box, pin) {
+      const pt = await crypto.subtle.decrypt({ name: "AES-GCM", iv: unb64(box.iv) }, await keyFrom(pin, unb64(box.salt)), unb64(box.ct));
+      return dec.decode(pt);
+    }
+
+    /* ---------- GitHub contents API ---------- */
+    let token = null;
+    const utf8b64 = (str) => { const bytes = enc.encode(str); let bin = ""; bytes.forEach((b) => { bin += String.fromCharCode(b); }); return btoa(bin); };
+    async function gh(path, opts = {}) {
+      const r = await fetch(`https://api.github.com/repos/${REPO}/contents/${path}${opts.method ? "" : `?ref=${BRANCH}`}`, {
+        cache: "no-store", ...opts,
+        headers: { Authorization: `Bearer ${token}`, Accept: "application/vnd.github+json", "X-GitHub-Api-Version": "2022-11-28", ...(opts.headers || {}) }
+      });
+      if (!r.ok) { const e = new Error(`GitHub ${r.status}`); e.status = r.status; throw e; }
+      return r.json();
+    }
+    // read a JSON file; a missing file reads as `fallback`
+    async function readFile(path, fallback) {
+      try {
+        const f = await gh(path);
+        return { sha: f.sha, json: JSON.parse(dec.decode(unb64(f.content.replace(/\n/g, "")))) };
+      } catch (e) { if (e.status === 404) return { sha: null, json: fallback }; throw e; }
+    }
+    // read the newest copy, apply `edit` to it, write it back; retry once if someone else saved in between
+    async function update(path, fallback, edit, message) {
+      for (let attempt = 0; ; attempt++) {
+        const { sha, json } = await readFile(path, fallback);
+        const next = edit(json);
+        try {
+          await gh(path, { method: "PUT", body: JSON.stringify({ message, branch: BRANCH, sha: sha || undefined,
+            content: utf8b64(JSON.stringify(next, null, 2) + "\n") }) });
+          return next;
+        } catch (e) { if (attempt === 0 && (e.status === 409 || e.status === 422)) continue; throw e; }
+      }
+    }
+    function explain(e) {
+      if (e.status === 401) return "Kalit noto'g'ri yoki muddati tugagan. Qaytadan sozlang.";
+      if (e.status === 403 || e.status === 404) return "Kalitda saytga yozish huquqi yo'q (Contents: Read and write, al-fayz.github.io).";
+      return "Internet yoki GitHub bilan muammo. Qaytadan urinib ko'ring.";
+    }
+
+    let stTimer;
+    function status(msg, kind, stay) {
+      const el = $("#status"); el.textContent = msg; el.className = "status" + (kind ? " " + kind : ""); el.hidden = false;
+      clearTimeout(stTimer); if (!stay) stTimer = setTimeout(() => { el.hidden = true; }, 3500);
+    }
+
+    /* ---------- screens ---------- */
+    function show(id) { ["setup", "login", "app"].forEach((s) => { $("#" + s).hidden = s !== id; }); $("#lock").hidden = id !== "app"; }
+
+    $("#setup-save").addEventListener("click", async () => {
+      const t = $("#token").value.trim(), p1 = $("#pin1").value, p2 = $("#pin2").value, err = $("#setup-err");
+      err.textContent = "";
+      if (!t) return (err.textContent = "Kalitni kiriting.");
+      if (!/^\d{4,8}$/.test(p1)) return (err.textContent = "PIN 4–8 ta raqamdan iborat bo'lsin.");
+      if (p1 !== p2) return (err.textContent = "PIN-kodlar bir xil emas.");
+      $("#setup-save").disabled = true; err.textContent = "Tekshirilmoqda…";
+      token = t;
+      try {
+        const r = await fetch(`https://api.github.com/repos/${REPO}`, { cache: "no-store", headers: { Authorization: `Bearer ${t}`, Accept: "application/vnd.github+json" } });
+        if (!r.ok) throw Object.assign(new Error(), { status: r.status });
+        const repo = await r.json();
+        if (!repo.permissions || !repo.permissions.push) throw Object.assign(new Error(), { status: 403 });
+        if (!store.set(await seal(t, p1))) throw new Error("storage");
+        err.textContent = ""; start();
+      } catch (e) { token = null; err.textContent = e.message === "storage" ? "Brauzer xotirasiga yozib bo'lmadi (yashirin rejimdan chiqing)." : explain(e); }
+      $("#setup-save").disabled = false;
+    });
+
+    async function login() {
+      const err = $("#login-err");
+      err.textContent = "";
+      try { token = await unseal(store.get(), $("#pin").value); start(); }
+      catch (e) { err.textContent = "PIN noto'g'ri."; $("#pin").select(); }
+    }
+    $("#login-go").addEventListener("click", login);
+    $("#pin").addEventListener("keydown", (e) => { if (e.key === "Enter") login(); });
+    $("#reset").addEventListener("click", () => { if (confirm("Saqlangan kalit o'chiriladi va qaytadan sozlaysiz. Davom etamizmi?")) { store.del(); show("setup"); } });
+    $("#lock").addEventListener("click", () => { token = null; $("#pin").value = ""; show("login"); });
+
+    document.querySelectorAll("[data-tab]").forEach((b) => b.addEventListener("click", () => {
+      document.querySelectorAll("[data-tab]").forEach((x) => x.classList.toggle("on", x === b));
+      $("#tab-dishes").hidden = b.dataset.tab !== "dishes"; $("#tab-videos").hidden = b.dataset.tab !== "videos";
+    }));
+
+    /* ---------- dishes on / off ---------- */
+    let menu = null, off = new Set(), videos = [];
+    const pending = new Map();   // id -> true (switch off) / false (switch on), not yet saved
+    let saveTimer = null, saving = false;
+
+    async function start() {
+      show("app");
+      status("Yuklanmoqda…", "", true);
+      try {
+        const [m, st, vd] = await Promise.all([
+          fetch(`menu.json?t=${Date.now()}`, { cache: "no-store" }).then((r) => r.json()),
+          readFile("status.json", { off: [] }), readFile("videos.json", { videos: [] })
+        ]);
+        menu = m; off = new Set(st.json.off || []); videos = vd.json.videos || [];
+        drawDishes(); drawVideos(); $("#status").hidden = true;
+      } catch (e) { status(explain(e), "bad", true); }
+    }
+
+    function drawDishes() {
+      const q = $("#search").value.trim().toLowerCase();
+      const items = menu.items.filter((i) => !i.hidden);
+      const offCount = items.filter((i) => off.has(i.id)).length;
+      $("#summary").innerHTML = offCount ? `Hozir <b>${offCount} ta</b> taom o'chirilgan (mijozlarga ko'rinmaydi).` : "Hamma taomlar yoqilgan.";
+      $("#dishes").innerHTML = menu.categories.map((c) => {
+        const list = items.filter((i) => i.cat === c.id && (!q || [i.name.uz, i.name.ko, i.name.en, i.name.ru].join(" ").toLowerCase().includes(q)));
+        if (!list.length) return "";
+        return `<div class="cat">${c.icon} ${esc(c.name.uz)}</div>` + list.map((i) => {
+          const pic = i.image || (i.images || [])[0];
+          return `<div class="dish${off.has(i.id) ? " off" : ""}" data-id="${esc(i.id)}" role="switch" aria-checked="${!off.has(i.id)}" tabindex="0">
+            ${pic ? `<img src="${esc(pic)}" alt="" loading="lazy">` : `<div class="noimg">🍽️</div>`}
+            <div class="nm"><b>${esc(i.name.uz)}</b><span>${esc(i.name.ko)} · ${i.price.toLocaleString("en-US")}원</span></div>
+            <span class="state">${off.has(i.id) ? "YO'Q" : "BOR"}</span><span class="sw"></span></div>`;
+        }).join("");
+      }).join("") || `<p class="summary">Hech narsa topilmadi.</p>`;
+    }
+    $("#search").addEventListener("input", drawDishes);
+
+    function toggle(id) {
+      const nowOff = !off.has(id);
+      if (nowOff) off.add(id); else off.delete(id);
+      pending.set(id, nowOff);
+      drawDishes();
+      status("Saqlanmoqda…", "", true);
+      clearTimeout(saveTimer); saveTimer = setTimeout(saveDishes, 1200);   // several taps in a row -> one save
+    }
+    $("#dishes").addEventListener("click", (e) => { const d = e.target.closest(".dish"); if (d) toggle(d.dataset.id); });
+    $("#dishes").addEventListener("keydown", (e) => { const d = e.target.closest(".dish"); if (d && (e.key === " " || e.key === "Enter")) { e.preventDefault(); toggle(d.dataset.id); } });
+
+    async function saveDishes() {
+      if (saving) { saveTimer = setTimeout(saveDishes, 800); return; }
+      if (!pending.size) return;
+      saving = true;
+      const batch = new Map(pending); pending.clear();
+      const names = [...batch].map(([id, o]) => `${o ? "−" : "+"}${id}`).join(" ");
+      try {
+        const next = await update("status.json", { off: [] }, (json) => {
+          const s = new Set(json.off || []);
+          batch.forEach((o, id) => { if (o) s.add(id); else s.delete(id); });
+          return { off: [...s].sort() };
+        }, `Oshpaz: ${names}`);
+        off = new Set(next.off); pending.forEach((o, id) => { if (o) off.add(id); else off.delete(id); });
+        drawDishes();
+        if (!pending.size) status("✓ Saqlandi. Saytda 1–2 daqiqada ko'rinadi.", "ok");
+      } catch (e) {
+        batch.forEach((o, id) => { if (!pending.has(id)) pending.set(id, o); });   // keep them for the next try
+        status(explain(e) + " (o'zgarish saqlanmadi)", "bad", true);
+      }
+      saving = false;
+    }
+    window.addEventListener("beforeunload", (e) => { if (pending.size || saving) { e.preventDefault(); e.returnValue = ""; } });
+
+    /* ---------- videos ---------- */
+    function parseVideo(url) {
+      let m = String(url).match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?(?:.*&)?v=|shorts\/|embed\/|live\/))([\w-]{11})/);
+      if (m) return { thumb: `https://i.ytimg.com/vi/${m[1]}/hqdefault.jpg`, kind: /\/shorts\//.test(url) ? "YouTube Shorts" : "YouTube" };
+      m = String(url).match(/instagram\.com\/(?:[\w.]+\/)?(reel|reels|p|tv)\/([\w-]+)/);
+      if (m) return { thumb: null, kind: "Instagram" };
+      return null;
+    }
+    function drawVideos() {
+      $("#videos").innerHTML = videos.length ? videos.map((v, i) => {
+        const p = parseVideo(v.url) || {};
+        const title = typeof v.title === "string" ? v.title : (v.title && (v.title.uz || v.title.en)) || "";
+        return `<div class="vid">${p.thumb ? `<img src="${esc(p.thumb)}" alt="" loading="lazy">` : `<div class="noimg">Instagram</div>`}
+          <div class="nm"><b>${esc(title || p.kind || "Video")}</b><span>${esc(v.url)}</span></div>
+          <button class="btn" data-up="${i}" ${i ? "" : "disabled"} aria-label="Yuqoriga">↑</button>
+          <button class="btn danger" data-del="${i}" aria-label="O'chirish">🗑</button></div>`;
+      }).join("") : `<p class="summary">Hali video yo'q. Menyuda "Tez orada" deb turadi.</p>`;
+    }
+    async function changeVideos(edit, message, okMsg) {
+      status("Saqlanmoqda…", "", true);
+      try {
+        const next = await update("videos.json", { videos: [] }, (json) => ({ videos: edit(json.videos || []) }), message);
+        videos = next.videos; drawVideos(); status(okMsg, "ok"); return true;
+      } catch (e) { status(explain(e), "bad", true); return false; }
+    }
+    $("#v-add").addEventListener("click", async () => {
+      const url = $("#v-url").value.trim(), title = $("#v-title").value.trim(), err = $("#v-err");
+      err.textContent = "";
+      if (!parseVideo(url)) return (err.textContent = "Bu YouTube yoki Instagram havolasi emas.");
+      $("#v-add").disabled = true;
+      const item = title ? { url, title } : { url };
+      if (await changeVideos((list) => [item, ...list.filter((v) => v.url !== url)], `Video qo'shildi: ${title || url}`, "✓ Video qo'shildi. Saytda 1–2 daqiqada chiqadi.")) {
+        $("#v-url").value = ""; $("#v-title").value = "";
+      }
+      $("#v-add").disabled = false;
+    });
+    $("#videos").addEventListener("click", (e) => {
+      const del = e.target.closest("[data-del]"), up = e.target.closest("[data-up]");
+      if (del) {
+        const v = videos[+del.dataset.del];
+        if (v && confirm("Bu video menyudan olib tashlansinmi?")) changeVideos((list) => list.filter((x) => x.url !== v.url), `Video olib tashlandi: ${v.url}`, "✓ Video olib tashlandi.");
+      } else if (up) {
+        const v = videos[+up.dataset.up];
+        if (v) changeVideos((list) => {
+          const i = list.findIndex((x) => x.url === v.url);
+          if (i > 0) { const c = list.slice(); [c[i - 1], c[i]] = [c[i], c[i - 1]]; return c; }
+          return list;
+        }, `Video tartibi: ${v.url}`, "✓ Tartib saqlandi.");
+      }
+    });
+
+    /* ---------- boot ---------- */
+    if (!window.crypto || !crypto.subtle) { show("setup"); $("#setup-err").textContent = "Bu brauzer juda eski. Chrome yoki Safari'ning yangi versiyasini oching."; $("#setup-save").disabled = true; }
+    else show(store.get() ? "login" : "setup");
+  })();
+  </script>
+</body>
+</html>
